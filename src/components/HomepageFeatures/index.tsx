@@ -1,6 +1,5 @@
 import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
-import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
@@ -53,7 +52,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({title, description, pill, accent, href}: FeatureItem) {
   return (
-    <div className={clsx('col col--4', styles.card)}>
+    <div className={styles.card}>
       <Link to={href} className={styles.cardLink}>
         <div className={styles.pill} style={{backgroundImage: accent}}>
           {pill}
@@ -75,7 +74,7 @@ export default function HomepageFeatures(): ReactNode {
           <Heading as="h2">Why CurrentX</Heading>
           <p>Built for quick testing on Sepolia, with the same flows you ship to mainnet.</p>
         </div>
-        <div className="row">
+        <div className={styles.featureGrid}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
