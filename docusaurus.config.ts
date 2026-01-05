@@ -4,6 +4,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+const siteUrl = process.env.SITE_URL ?? 'https://currentx-dex.vercel.app';
+const baseUrl = process.env.BASE_URL ?? '/';
+
 const config: Config = {
   title: 'CurrentX',
   tagline: 'Docs for the CurrentX DEX on Sepolia',
@@ -15,10 +18,10 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-site.example.com',
+  url: siteUrl,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For static hosting deployments, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl,
 
   // Deployment config (update to match your hosting).
   // If you aren't using static hosting, you don't need these.
