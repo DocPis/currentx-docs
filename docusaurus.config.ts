@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-const siteUrl = process.env.SITE_URL ?? 'https://currentx-dex.vercel.app';
+const siteUrl = process.env.SITE_URL ?? 'https://currentx-docs.vercel.app';
 const baseUrl = process.env.BASE_URL ?? '/';
 
 const config: Config = {
