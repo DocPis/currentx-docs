@@ -14,13 +14,13 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <p className={styles.kicker}>CurrentX - Sepolia (Applied for MegaETH)</p>
+            <p className={styles.kicker}>CurrentX - MegaETH</p>
             <Heading as="h1" className={styles.heroTitle}>
               Ship swaps, liquidity, and farming with confidence
             </Heading>
             <p className={clsx('hero__subtitle', styles.heroSubtitle)}>
               Everything you need to build on the CurrentX DEX: live Uniswap V2
-              quotes, subgraph-backed stats, and CRX farming via MasterChef.
+              quotes on MegaETH, subgraph-backed stats, and CRX farming via MasterChef.
             </p>
             <div className={styles.chips}>
               <span>Live quotes & price impact</span>
@@ -60,7 +60,7 @@ function HomepageHeader() {
               </li>
               <li>
                 <span className={styles.dot} />
-                Contract addresses, env vars, and environment setup for Sepolia.
+                Contract addresses, env vars, and environment setup for MegaETH.
               </li>
               <li>
                 <span className={styles.dot} />
@@ -78,7 +78,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="CurrentX Docs"
-      description="CurrentX swaps, liquidity, and CRX farming on Sepolia">
+      description="CurrentX swaps, liquidity, and CRX farming on MegaETH">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
@@ -92,7 +92,7 @@ export default function Home(): ReactNode {
               <a className={styles.linkCard} href="https://currentx.app/" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>App</span>
                 <div className={styles.linkTitle}>Launch CurrentX</div>
-                <div className={styles.linkDesc}>Open the Sepolia dApp for swaps, liquidity, and farming.</div>
+                <div className={styles.linkDesc}>Open the MegaETH dApp for swaps, liquidity, and farming.</div>
               </a>
               <a className={styles.linkCard} href="https://t.me/currentxdex" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>Telegram</span>

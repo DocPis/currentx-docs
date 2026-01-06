@@ -3,18 +3,22 @@ id: architecture
 title: Architecture and Flows
 ---
 
-Technical overview of how the dApp interacts with Sepolia and its data sources.
+Technical overview of how the dApp interacts with MegaETH and its data sources.
 
 ## Network configuration
 
-- Chain ID: `0xaa36a7` (Sepolia).
-- Default RPC: `https://1rpc.io/sepolia` (overridable with `VITE_SEPOLIA_RPC`).
+- Chain ID: `0x10e6` (MegaETH).
+- Default RPC: `https://mainnet.megaeth.com/rpc` (override via your RPC env var if needed).
 - The read-only provider is used for quotes, reserves, and balances when no signature is needed; when signing is required, `getProvider` selects the injected wallet (MetaMask/Trust/Rabby).
 
 ## Tokens and addresses
 
-- Supported tokens are defined in `src/config/tokens.js` (ETH, WETH, CRX, USDC, USDT, DAI, WBTC).
-- Uniswap V2 factory/router, MasterChef, and key LP addresses are centralized in `src/config/addresses.js`.
+- Core addresses (factory, router, tokens, farms) are centralized in `src/config/addresses.js`.
+- MegaETH addresses in use:
+  - Factory: `0x1F49127E87A1B925694a67C437dd2252641B3875`
+  - Router: `0x40276Cff28774FaFaF758992415cFA03b6E4689c`
+  - CurrentX (CRX): `0xDEdDFD6F6fD2eDa3B0bC01c3Dfa03F2eA6f40504`
+  - WETH: `0x4200000000000000000000000000000000000006`
 - A small in-memory custom token registry (`customTokens`) lets the UI show extra tokens alongside the base set.
 
 ## Swap paths and quotes
@@ -22,7 +26,6 @@ Technical overview of how the dApp interacts with Sepolia and its data sources.
 - Quotes are computed on-chain via `getV2Quote`/`getV2QuoteWithMeta`:
   - Uses a direct pair when available.
   - Otherwise tries a hop through WETH.
-  - The WETH/USDC pair can be forced to a known address (`WETH_USDC_PAIR_ADDRESS`) to avoid factory mismatches.
 - For ETH/WETH, the dApp calls `deposit`/`withdraw` on the WETH contract directly (no router).
 - UI slippage is converted to basis points to derive `amountOutMin`/`minLiquidity`.
 
@@ -40,7 +43,7 @@ Technical overview of how the dApp interacts with Sepolia and its data sources.
 
 - Pool data and CRX emissions are loaded via `fetchMasterChefFarms`, which:
   - Reads `poolInfo`, `totalAllocPoint`, and `currentxPerBlock`.
-  - Estimates APR by annualizing rewards per block and dividing by LP TVL (USD price from WETH/USDC or CRX/WETH).
+  - Estimates APR by annualizing rewards per block and dividing by LP TVL (prices derived from available reference pairs on MegaETH).
 - User data (staked, pending, LP balance) comes from `userInfo`, `pendingCurrentX`, and `balanceOf`.
 - Stake/unstake/claim always use the signer provider; errors differentiate wallet rejections from RPC issues.
 

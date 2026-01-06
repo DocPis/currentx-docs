@@ -3,7 +3,7 @@ id: farms
 title: Farms (staking LP for CRX)
 ---
 
-- Data source: MasterChef contract (`MASTER_CHEF_ADDRESS`) on Sepolia.
+- Data source: MasterChef contract (`MASTER_CHEF_ADDRESS`) on MegaETH.
 - Each farm shows LP tokens, estimated APR (CRX emission/TVL), TVL, and accrued CRX.
 - Auto-refresh:
   - Farm list every 30s.
@@ -12,5 +12,5 @@ title: Farms (staking LP for CRX)
   - `Deposit`: approves LP on MasterChef if needed, then deposits.
   - `Withdraw`: unstakes LP.
   - `Claim`: calls `deposit(0)` to harvest CRX only.
-- After each action the transaction hash is shown with a SepoliaScan link.
+- After each action the transaction hash is shown with a MegaETH explorer link.
 - Tips: APR depends on TVL and CRX emission; if APR looks off, refresh or wait for the next auto-sync. Pending rewards update every 20s while connected.

@@ -12,5 +12,5 @@ title: Swap
   - Price impact estimated from reserves.
 - **Execution**:
   - ERC20 sells: allowance check; "Approve" appears when needed.
-  - Swap shows success/error and a link to SepoliaScan when mined.
+  - Swap shows success/error and a link to the MegaETH explorer when mined.
 - **Tips**: If quoting fails, check token addresses, subgraph availability, or try a smaller size on low-liquidity pairs.

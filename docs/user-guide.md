@@ -8,7 +8,7 @@ This page covers the core flows of the dApp: wallet connection, data loading, an
 ## Wallet connection and network
 
 - Supported wallets in the modal: MetaMask, Trust Wallet, and Rabby (auto-detected when installed).
-- Network: Sepolia (`chainId 0xaa36a7`). If the wallet is on a different chain, the header shows "Wrong network".
+- Network: MegaETH (`chainId 0x10e6`). If the wallet is on a different chain, the header shows "Wrong network".
 - Active sessions are remembered via `sessionStorage`; on refresh the dApp attempts to reconnect without prompting again.
 
 ## Where to go next

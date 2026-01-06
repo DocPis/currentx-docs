@@ -44,7 +44,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Stake LP tokens in the MasterChef, track APR, pending CRX, and link to
-        SepoliaScan for every transaction.
+        the MegaETH explorer for every transaction.
       </>
     ),
   },
@@ -72,7 +72,7 @@ export default function HomepageFeatures(): ReactNode {
       <div className="container">
         <div className={styles.sectionHeader}>
           <Heading as="h2">Why CurrentX</Heading>
-          <p>Built for quick testing on Sepolia, with the same flows you ship to mainnet.</p>
+          <p>Built for MegaETH with the same flows you ship to mainnet.</p>
         </div>
         <div className={styles.featureGrid}>
           {FeatureList.map((props, idx) => (

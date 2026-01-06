@@ -9,7 +9,7 @@ const baseUrl = process.env.BASE_URL ?? '/';
 
 const config: Config = {
   title: 'CurrentX',
-  tagline: 'Docs for the CurrentX DEX on Sepolia',
+  tagline: 'Docs for the CurrentX DEX on MegaETH',
   favicon: 'img/currentxlogo.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

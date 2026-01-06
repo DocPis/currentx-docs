@@ -3,7 +3,7 @@ id: intro
 title: Welcome to CurrentX
 ---
 
-CurrentX is a DEX focused on a smooth flow across swap, liquidity, and farming on Sepolia. The app is designed to be simple for testnet users while staying transparent for anyone who wants to see what happens under the hood.
+CurrentX is a DEX focused on a smooth flow across swap, liquidity, and farming on MegaETH. The app is designed to be simple while staying transparent for anyone who wants to see what happens under the hood.
 
 ## What you'll find
 

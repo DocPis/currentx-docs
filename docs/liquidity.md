@@ -12,5 +12,5 @@ title: Liquidity
 - **Withdraw flow**:
   - Enter LP to burn or use 25/50/75/100% of your LP balance.
   - Approves LP to the router if not already approved, then calls `removeLiquidity`/`removeLiquidityETH`.
-- **Pair creation**: If the pair doesn't exist on Sepolia, first liquidity will create it automatically.
+- **Pair creation**: If the pair doesn't exist on MegaETH, first liquidity will create it automatically.
 - **Troubleshooting**: If TVL/volume are blank, the subgraph may be down; you can still add/remove liquidity because on-chain reads power the actions.
