@@ -104,7 +104,7 @@ export default function Home(): ReactNode {
                 <div className={styles.linkTitle}>Twitter / X</div>
                 <div className={styles.linkDesc}>Follow news, releases, and testnet milestones.</div>
               </a>
-              <a className={styles.linkCard} href="https://discord.gg/ur9ysxzt" target="_blank" rel="noreferrer">
+              <a className={styles.linkCard} href="https://discord.gg/g33rC3RT" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>Discord</span>
                 <div className={styles.linkTitle}>Discord</div>
                 <div className={styles.linkDesc}>Connect with the team and other builders.</div>
