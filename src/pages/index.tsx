@@ -35,7 +35,7 @@ function HomepageHeader() {
               </Link>
               <Link
                 className={clsx('button button--secondary button--lg', styles.ghostButton)}
-                href="https://currentx-dex.vercel.app/"
+                href="https://currentx.app/"
                 target="_blank"
                 rel="noreferrer">
                 Launch the app
@@ -89,7 +89,7 @@ export default function Home(): ReactNode {
               <p>Where to find the CurrentX dApp and community.</p>
             </div>
             <div className={styles.linkGrid}>
-              <a className={styles.linkCard} href="https://currentx-dex.vercel.app/" target="_blank" rel="noreferrer">
+              <a className={styles.linkCard} href="https://currentx.app/" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>App</span>
                 <div className={styles.linkTitle}>Launch CurrentX</div>
                 <div className={styles.linkDesc}>Open the Sepolia dApp for swaps, liquidity, and farming.</div>
