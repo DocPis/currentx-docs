@@ -1,6 +1,6 @@
 ---
-id: architettura
-title: Architecture and flows
+id: architecture
+title: Architecture and Flows
 ---
 
 Technical overview of how the dApp interacts with Sepolia and its data sources.
@@ -23,7 +23,7 @@ Technical overview of how the dApp interacts with Sepolia and its data sources.
   - Uses a direct pair when available.
   - Otherwise tries a hop through WETH.
   - The WETH/USDC pair can be forced to a known address (`WETH_USDC_PAIR_ADDRESS`) to avoid factory mismatches.
-- For ETH↔WETH, the dApp calls `deposit`/`withdraw` on the WETH contract directly (no router).
+- For ETH/WETH, the dApp calls `deposit`/`withdraw` on the WETH contract directly (no router).
 - UI slippage is converted to basis points to derive `amountOutMin`/`minLiquidity`.
 
 ## Liquidity and balancing

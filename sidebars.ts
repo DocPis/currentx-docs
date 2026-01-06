@@ -18,12 +18,12 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'User guide',
-      items: ['guida-utente', 'dashboard', 'swap', 'liquidity', 'farms'],
+      items: ['user-guide', 'dashboard', 'swap', 'liquidity', 'farms'],
     },
     {
       type: 'category',
       label: 'Technical details',
-      items: ['architettura', 'riferimenti-onchain'],
+      items: ['architecture', 'onchain-references'],
     },
   ],
 };

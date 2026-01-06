@@ -105,7 +105,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} CurrentX.`,
+      copyright: `Copyright (c) ${new Date().getFullYear()} CurrentX.`,
     },
     prism: {
       theme: prismThemes.github,

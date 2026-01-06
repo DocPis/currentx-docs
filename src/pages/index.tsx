@@ -14,7 +14,7 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <p className={styles.kicker}>CurrentX · Sepolia (Applied for MegaETH)</p>
+            <p className={styles.kicker}>CurrentX - Sepolia (Applied for MegaETH)</p>
             <Heading as="h1" className={styles.heroTitle}>
               Ship swaps, liquidity, and farming with confidence
             </Heading>
@@ -44,11 +44,11 @@ function HomepageHeader() {
           </div>
 
           <div className={styles.heroCard}>
-            <div className={styles.cardTitle}>What’s inside</div>
+            <div className={styles.cardTitle}>What's inside</div>
             <ul className={styles.cardList}>
               <li>
                 <span className={styles.dot} />
-                Swap flow with allowance checks and ETH↔WETH wrap/unwrap.
+                Swap flow with allowance checks and ETH/WETH wrap/unwrap.
               </li>
               <li>
                 <span className={styles.dot} />
