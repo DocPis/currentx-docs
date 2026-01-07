@@ -64,7 +64,7 @@ function HomepageHeader() {
               </li>
               <li>
                 <span className={styles.dot} />
-                Applied for the MegaETH Frontier program (pending review).
+                Applied for the MegaETH Frontier program.
               </li>
             </ul>
           </div>
