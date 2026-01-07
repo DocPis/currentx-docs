@@ -27,4 +27,5 @@ Addresses and parameters used by the dApp on MegaETH.
 | ETH   | 18       | - (native)                                   | Also used with `addLiquidityETH` |
 | WETH  | 18       | `0x4200000000000000000000000000000000000006` | Wrapped native ETH               |
 | CRX   | 6        | `0xDEdDFD6F6fD2eDa3B0bC01c3Dfa03F2eA6f40504` | CurrentX token                   |
+| USDC  | 6        | `0x4c99d545E82D32dA12Cc634a3964b1698073DA2B` | Dollar stablecoin on MegaETH     |
 | Other | -        | Configure per deployment                     | Add stables or BTC wrappers here |
