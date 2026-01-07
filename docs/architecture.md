@@ -18,6 +18,7 @@ Technical overview of how the dApp interacts with MegaETH and its data sources.
   - Factory: `0x1F49127E87A1B925694a67C437dd2252641B3875`
   - Router: `0x40276Cff28774FaFaF758992415cFA03b6E4689c`
   - CurrentX (CRX): `0xDEdDFD6F6fD2eDa3B0bC01c3Dfa03F2eA6f40504`
+  - MasterChef: `0x0e59533B28df0537bc28D05618a2c4f20EBE07a0`
   - WETH: `0x4200000000000000000000000000000000000006`
 - A small in-memory custom token registry (`customTokens`) lets the UI show extra tokens alongside the base set.
 
