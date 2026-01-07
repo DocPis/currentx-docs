@@ -11,6 +11,12 @@ This page covers the core flows of the dApp: wallet connection, data loading, an
 - Network: MegaETH (`chainId 0x10e6`). If the wallet is on a different chain, the header shows "Wrong network".
 - Active sessions are remembered via `sessionStorage`; on refresh the dApp attempts to reconnect without prompting again.
 
+## CRX whitelist
+
+- You can join the CRX token whitelist directly from the website (open https://currentx.app/ and look for the "CRX Whitelist" call-to-action).
+- Flow: connect your wallet, switch to MegaETH if prompted, then submit the whitelist request from that page.
+- The same wallet you whitelist will be used for future CRX distribution/claims, so verify the address before confirming.
+
 ## Where to go next
 
 - [Dashboard](./dashboard): TVL/volume stats, 7-day charts, and live protocol metrics (subgraph + on-chain fallback).
