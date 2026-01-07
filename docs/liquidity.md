@@ -3,7 +3,7 @@ id: liquidity
 title: Liquidity
 ---
 
-- **Pool list**: CRX/WETH, WETH/USDC, WETH/DAI, WETH/USDT, WBTC/USDC, DAI/USDC, USDT/USDC, ETH/USDC with live TVL/volume/fees. TVL falls back to on-chain estimates when subgraph data is missing.
+- **Pool list**: CRX/WETH, WETH/USDC, ETH/USDC with live TVL/volume/fees. TVL falls back to on-chain estimates when subgraph data is missing. MegaETH is not live yet, so deposits will fail until liquidity is added; more pairs will come later.
 - **Autopilot**: One-click entry into CRX/WETH deposit flow.
 - **Deposit flow**:
   - Enter both token amounts; balanced suggestions come from current reserves.
