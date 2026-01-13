@@ -49,7 +49,7 @@
 }
 
 .heroTitle {
-  font-size: clamp(2.4rem, 3vw, 3rem);
+  font-size: clamp(2.1rem, 4vw, 3rem);
   line-height: 1.1;
   color: #f8fafc;
   margin-bottom: 0.75rem;
@@ -162,10 +162,22 @@
 @media screen and (max-width: 996px) {
   .heroGrid {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
 
   .heroCard {
     order: 2;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .buttons {
+    align-items: stretch;
+  }
+
+  .buttons a {
+    width: 100%;
+    text-align: center;
   }
 }
 
