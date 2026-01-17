@@ -3,7 +3,7 @@ id: swap
 title: Swap
 ---
 
-- **Tokens**: ETH/WETH, CRX, USDC, USDT, DAI, WBTC plus any custom tokens you add.
+- **Tokens**: ETH/WETH, CRX, USDC, USDT, plus any custom tokens you add.
 - **Inputs**: Set Sell/Buy tokens, enter an amount, or tap 25/50/75/100% of balance.
 - **Quoting**:
   - Direct pair when available; otherwise one hop via WETH.
