@@ -21,6 +21,8 @@ Technical overview of how the dApp interacts with MegaETH and its data sources.
   - MasterChef: `0x0e59533B28df0537bc28D05618a2c4f20EBE07a0`
   - WETH: `0x4200000000000000000000000000000000000006`
   - USDC: `0x4c99d545E82D32dA12Cc634a3964b1698073DA2B`
+  - cUSD: `0xcCcc62962d17b8914c62D74FfB843d73B2a3cccC`
+  - USDm: `0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E74`
 - A small in-memory custom token registry (`customTokens`) lets the UI show extra tokens alongside the base set.
 
 ## Swap paths and quotes

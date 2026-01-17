@@ -28,4 +28,6 @@ Addresses and parameters used by the dApp on MegaETH.
 | WETH  | 18       | `0x4200000000000000000000000000000000000006` | Wrapped native ETH               |
 | CRX   | 6        | `0xDEdDFD6F6fD2eDa3B0bC01c3Dfa03F2eA6f40504` | CurrentX token                   |
 | USDC  | 6        | `0x4c99d545E82D32dA12Cc634a3964b1698073DA2B` | Dollar stablecoin on MegaETH     |
+| cUSD  | 18       | `0xcCcc62962d17b8914c62D74FfB843d73B2a3cccC` | Celo-dollar stable on MegaETH    |
+| USDm  | 18       | `0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E74` | Synthetic dollar on MegaETH      |
 | Other | -        | Configure per deployment                     | Add stables or BTC wrappers here |
