@@ -3,55 +3,58 @@ id: architecture
 title: Architecture and Flows
 ---
 
-Technical overview of how the dApp interacts with MegaETH and its data sources.
+This page summarizes how the CurrentX dApp is wired to MegaETH, which contracts it uses, and where configuration lives.
 
-## Network configuration
+## Configuration entry points
 
-- Chain ID: `0x10e6` (MegaETH).
-- Default RPC: `https://mainnet.megaeth.com/rpc` (override via your RPC env var if needed).
-- The read-only provider is used for quotes, reserves, and balances when no signature is needed; when signing is required, `getProvider` selects the injected wallet (MetaMask/Trust/Rabby).
+- Network preset: `src/shared/config/networks.js`
+- Addresses: `src/shared/config/addresses.js`
+- Token registry: `src/shared/config/tokens.js`
+- ABI registry: `src/shared/config/abis.js`
+- Web3 utilities and provider selection: `src/shared/config/web3.js`
 
-## Tokens and addresses
+## Network and providers
 
-- Core addresses (factory, router, tokens, farms) are centralized in `src/config/addresses.js`.
-- MegaETH addresses in use:
-  - Factory: `0x1F49127E87A1B925694a67C437dd2252641B3875`
-  - Router: `0x40276Cff28774FaFaF758992415cFA03b6E4689c`
-  - CurrentX (CRX): `0xDEdDFD6F6fD2eDa3B0bC01c3Dfa03F2eA6f40504`
-  - MasterChef: `0x0e59533B28df0537bc28D05618a2c4f20EBE07a0`
-  - WETH: `0x4200000000000000000000000000000000000006`
-  - USDC: `0x4c99d545E82D32dA12Cc634a3964b1698073DA2B`
-  - cUSD: `0xcCcc62962d17b8914c62D74FfB843d73B2a3cccC`
-  - USDm: `0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E74`
-- A small in-memory custom token registry (`customTokens`) lets the UI show extra tokens alongside the base set.
+- Active network: MegaETH mainnet (`chainId 0x10e6`, decimal `4326`).
+- RPC pool: built from env vars and preset defaults, with rotation on rate limits.
+- Read-only provider prefers injected wallets to avoid CORS, then falls back to RPC URLs.
+- Explorer base URL is pulled from the network preset.
 
-## Swap paths and quotes
+## Data sources
 
-- Quotes are computed on-chain via `getV2Quote`/`getV2QuoteWithMeta`:
-  - Uses a direct pair when available.
-  - Otherwise tries a hop through WETH.
-- For ETH/WETH, the dApp calls `deposit`/`withdraw` on the WETH contract directly (no router).
-- UI slippage is converted to basis points to derive `amountOutMin`/`minLiquidity`.
+- Subgraph (Uniswap V2 schema): `src/shared/config/subgraph.js`.
+- Cache TTL: 20s, retries: 2.
+- Optional proxy: `VITE_SUBGRAPH_PROXY` (for CORS).
+- Realtime feed: MegaETH websockets (`stateChanges` and `miniBlocks`) via `src/shared/services/realtime.js`.
 
-## Liquidity and balancing
+## Swap (V3)
 
-- Pools are code-configured and merged with subgraph data. If the subgraph lacks `pairs` or `pairDayDatas`, the code falls back to `pairCreateds` or on-chain reserves.
-- Depositing:
-  - Uses `addLiquidityETH` when ETH is involved.
-  - Uses `addLiquidity` for two ERC20s after approvals to the router.
-  - When reserves exist, the UI suggests the balanced amount for the second token based on the first input.
-- Withdrawing:
-  - Reads LP and reserves via `getV2PairReserves`; if the user has no allowance to the router, approval is requested before `removeLiquidity`/`removeLiquidityETH`.
+- Quoting: Uniswap V3 Quoter V2.
+- Routing: direct or WETH hop, fee tiers `0.01%`, `0.05%`, `0.30%`, `1.00%`.
+- Execution: Universal Router `execute` with `V3_SWAP_EXACT_IN` and optional wrap/unwrap steps.
+- Approvals: Permit2 (spender) with Exact or Unlimited modes.
 
-## Farming (MasterChef)
+## Liquidity
 
-- Pool data and CRX emissions are loaded via `fetchMasterChefFarms`, which:
-  - Reads `poolInfo`, `totalAllocPoint`, and `currentxPerBlock`.
-  - Estimates APR by annualizing rewards per block and dividing by LP TVL (prices derived from available reference pairs on MegaETH).
-- User data (staked, pending, LP balance) comes from `userInfo`, `pendingCurrentX`, and `balanceOf`.
-- Stake/unstake/claim always use the signer provider; errors differentiate wallet rejections from RPC issues.
+V2 pools:
+- Pool list is built from the V2 Factory `allPairs` plus token metadata from the registry and on-chain lookups.
+- Live stats (TVL, volume, fees) are fetched from the subgraph, with on-chain reserve fallback.
+- Pair creation is handled by `createPair` before the first addLiquidity.
 
-## Balance handling
+V3 positions:
+- Positions are minted through the Nonfungible Position Manager.
+- Ranges are converted to ticks and rounded to the fee tier tick spacing.
+- If a pool is not initialized, `createAndInitializePoolIfNecessary` is called using the deposit ratio.
+- Position NFTs are rendered using `tokenURI` (IPFS and base64 supported).
 
-- The `useBalances` hook reads ETH and configured ERC20s; it subscribes to new blocks to refresh balances nearly in real time.
-- Loading flags and a refresh lock (`isRefreshing` + `pendingAddress`) prevent overlapping requests.
+## Farms (MasterChef)
+
+- Pools and APR are loaded from MasterChef via `poolInfo`, `totalAllocPoint`, and `currentxPerBlock`.
+- APR uses on-chain LP reserves with subgraph fallback.
+- Claim uses `deposit(pid, 0)`.
+
+## Balances and multicall
+
+- Balances are refreshed per block and via realtime miniBlocks.
+- ERC20 reads are batched with Multicall3 when available; direct RPC is used as fallback.
+- Custom tokens are stored in local storage under `__CX_CUSTOM_TOKENS__`.

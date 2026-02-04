@@ -3,10 +3,14 @@ id: intro
 title: Welcome to CurrentX
 ---
 
-CurrentX is a DEX focused on a smooth flow across swap, liquidity, and farming on MegaETH. The app is designed to be simple while staying transparent for anyone who wants to see what happens under the hood.
+CurrentX is a MegaETH DEX with Uniswap V3 style swaps and a dual liquidity system: V2 pools and V3 concentrated positions. These docs cover the current UI flows and the exact on-chain and build-time parameters used by the app.
 
 ## What you'll find
 
-- Overview of how the dApp works (supported wallets, network, on-chain + subgraph data).
-- Step-by-step guides for the main sections: Dashboard, Swap, Liquidity, and Farms.
-- Technical references: contract addresses, supported tokens, environment variables.
+- User flows for Dashboard, Swap (V3), Liquidity (V2 + V3 positions), and Farms.
+- Developer references for network config, contract addresses, tokens, and ABIs.
+- Migration notes whenever contracts, addresses, or flows change.
+
+## Network scope
+
+- Mainnet only (MegaETH `chainId 0x10e6`, decimal `4326`).

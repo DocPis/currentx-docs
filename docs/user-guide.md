@@ -3,29 +3,42 @@ id: user-guide
 title: User Guide
 ---
 
-This page covers the core flows of the dApp: wallet connection, data loading, and interacting with swap, liquidity, and farming.
+This guide covers wallet connection, network behavior, and how to navigate CurrentX.
 
 ## Wallet connection and network
 
-- Supported wallets in the modal: MetaMask, Trust Wallet, and Rabby (auto-detected when installed).
-- Network: MegaETH (`chainId 0x10e6`). If the wallet is on a different chain, the header shows "Wrong network".
-- Active sessions are remembered via `sessionStorage`; on refresh the dApp attempts to reconnect without prompting again.
+- Supported wallets: MetaMask, Trust Wallet, Rabby.
+- On connect, the app attempts `wallet_switchEthereumChain` to MegaETH (`chainId 0x10e6`, decimal `4326`). If the chain is missing, it calls `wallet_addEthereumChain` using the RPC list and explorer from the active network preset.
+- Mobile: open the site inside the Trust Wallet in-app browser. The wallet modal includes a deep link for Trust Wallet on iOS/Android.
+- Session persistence: `sessionStorage` key `cx_session_connected` is set after a successful connect, so refreshes auto reconnect. Disconnect clears the session.
+- When the wallet is on the wrong chain, swaps and liquidity actions are blocked until you switch to MegaETH.
 
-## CRX whitelist
+## Whitelist
 
-- You can join the CRX token whitelist directly from the website (open https://currentx.app/ and look for the "CRX Whitelist" call-to-action).
-- Flow: connect your wallet, switch to MegaETH if prompted, then submit the whitelist request from that page.
-- The same wallet you whitelist will be used for future CRX distribution/claims, so verify the address before confirming.
+- The app shows a banner that links to `https://currentx.app/whitelist`.
+- Flow: connect wallet, switch to MegaETH if prompted, submit the whitelist form.
 
-## Where to go next
+## Navigation (tabs)
 
-- [Dashboard](./dashboard): TVL/volume stats, 7-day charts, and live protocol metrics (subgraph + on-chain fallback).
-- [Swap](./swap): Uniswap V2 swaps with allowance checks, price impact, and wrap/unwrap for ETH/WETH.
-- [Liquidity](./liquidity): Guided add/remove flows, balanced amounts, approvals, and on-chain TVL fallback.
-- [Farms](./farms): Stake LP in MasterChef, view APR/pending CRX, and claim rewards.
+- [Dashboard](./dashboard): protocol TVL/volume and top pairs (subgraph backed).
+- [Swap](./swap): Uniswap V3 swaps via Universal Router with Turbo and Protected modes.
+- [Liquidity](./liquidity): V2 pools (LP tokens) and V3 concentrated positions (NFTs).
+- [Farms](./farms): stake V2 LP tokens in MasterChef to earn CRX.
 
-## Notes and quick fixes
+## Custom tokens (optional)
 
-- Wallet rejections (code 4001 or ACTION_REJECTED) are surfaced as non-blocking errors.
-- Deposit balancing suggestions rely on current reserves; if the pool is empty, no suggestion is shown.
-- Balance snapshots also refresh on each new block via a provider listener.
+- The Liquidity page allows adding a custom token by contract address.
+- Added tokens are stored in local storage under `__CX_CUSTOM_TOKENS__` and appear in the Swap and Liquidity selectors.
+- Tokens blocked from liquidity (see Liquidity docs) cannot be added.
+
+## Data refresh and realtime
+
+- Balances refresh on new blocks and on MegaETH realtime feeds (`stateChanges` and `miniBlocks`).
+- Realtime feeds are mainnet only; fallback polling is always active.
+- Pool stats and dashboard metrics are subgraph backed with on-chain fallbacks. Errors show inline without blocking actions.
+
+## Common issues
+
+- Wallet rejection: error code `4001` / `ACTION_REJECTED`.
+- RPC rate limit: retry, or reload to rotate the RPC pool.
+- Wrong network: switch to MegaETH before retrying.

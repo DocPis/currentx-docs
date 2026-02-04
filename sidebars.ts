@@ -23,7 +23,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Technical details',
-      items: ['architecture', 'onchain-references'],
+      items: ['architecture', 'onchain-references', 'migration-guide', 'changelog'],
     },
   ],
 };
