@@ -39,12 +39,12 @@ Subgraph:
 | Component | Address | Notes |
 | --- | --- | --- |
 | Factory | `0x09cF8A0b9e8C89bff6d1ACbe1467e8E335Bdd03E` | Pool discovery |
-| Quoter V2 | `0x962e62df3df243844bd89ffb5b061919725dca2d` | Off-chain quoting |
-| Position Manager | `0xa02e90a5f5ef73c434f5a7e6a77e6508f009cb9d` | NFT positions |
-| Swap Router | `0x5a8bc70674d82ac2bc04be91cf172f60169c50b3` | V3 router (not used by UI) |
+| Quoter V2 | `0x962e62DF3dF243844Bd89FfB5B061919725DCa2d` | Off-chain quoting |
+| Position Manager | `0xA02E90A5F5eF73c434f5A7E6A77E6508f009cB9D` | NFT positions |
+| Swap Router | `0x5a8BC70674d82Ac2bC04bE91Cf172F60169c50B3` | V3 router (not used by UI) |
 | Universal Router | `0x2c61d16Ad68f030bec95370Ab8a0Ba60e7E7B0a6` | Swap execution in UI |
-| Tick Lens | `0xd8fe4a55f7f79d2937637671923e59d8488683c3` | Pool tick views |
-| Interface Multicall | `0x47163ef055ac5efdfdd946303f86820736bfbb8d` | V3 multicall |
+| Tick Lens | `0xD8Fe4A55f7f79D2937637671923E59d8488683C3` | Pool tick views |
+| Interface Multicall | `0x47163ef055aC5EFdFDD946303F86820736BfBb8D` | V3 multicall |
 | Migrator | `0xAA5B9F20e788063CD1e7e482c9F55b8c803E5456` | V2 -> V3 migration |
 | Pool init code hash | `0xc5b9323f38f7ec5daae18bf2b6696c143def3728c6f6ed2aa34dcb31ad4fbf3f` | Deterministic pool address |
 

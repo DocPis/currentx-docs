@@ -30,7 +30,7 @@ This guide is for integrators updating from older CurrentX docs or configs to th
 - V2 Router: `0x189b27c207b4cBBae1C65086F31383532443f5f2`
 - V3 Factory: `0x09cF8A0b9e8C89bff6d1ACbe1467e8E335Bdd03E`
 - Universal Router: `0x2c61d16Ad68f030bec95370Ab8a0Ba60e7E7B0a6`
-- Position Manager: `0xa02e90a5f5ef73c434f5a7e6a77e6508f009cb9d`
+- Position Manager: `0xA02E90A5F5eF73c434f5A7E6A77E6508f009cB9D`
 
 ## 5) Token registry changes
 
