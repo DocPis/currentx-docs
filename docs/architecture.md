@@ -27,13 +27,14 @@ This page summarizes how the CurrentX dApp is wired to MegaETH, which contracts 
 - Optional proxy: `VITE_SUBGRAPH_PROXY` (for CORS).
 - Realtime feed: MegaETH websockets (`stateChanges` and `miniBlocks`) via `src/shared/services/realtime.js`.
 
-## Swap (V2 + V3)
+## Swap (V2)
 
-- V3 quoting: Uniswap V3 Quoter V2.
-- Routing: direct or WETH hop, fee tiers `0.01%`, `0.05%`, `0.30%`, `1.00%`.
-- V3 execution: Universal Router `execute` with `V3_SWAP_EXACT_IN` and optional wrap/unwrap steps.
-- V2 execution: V2 Router for legacy pools when enabled.
-- Approvals: Permit2 (spender) for Universal Router paths, ERC20 approvals for V2 Router.
+- Routing: direct pair or a single hop via `WETH`.
+- Quoting: V2 Router `getAmountsOut` based on pool reserves.
+- Execution: V2 Router `swapExact*` methods.
+- Approvals: ERC20 approvals target the V2 Router.
+
+Note: The current app repo does not wire V3 swaps. V3 contracts are documented for protocol reference and future expansion.
 
 ## Liquidity
 

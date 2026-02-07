@@ -4,11 +4,16 @@ title: MegaVault
 ---
 
 ## Table of Contents
+- [Status](#status)
 - [What It Is](#what-it-is)
 - [How It Works](#how-it-works)
 - [Using MegaVault](#using-megavault)
 - [Fees](#fees)
 - [Tradeoffs and Risks](#tradeoffs-and-risks)
+
+## Status
+
+The current app repo does not include MegaVault contracts, strategies, or fee configuration. The sections below describe the intended model, but concrete strategy/fee details are not defined in this codebase yet.
 
 ## What It Is
 
@@ -16,6 +21,7 @@ MegaVault is a managed liquidity vault that aggregates user deposits and deploys
 
 ## How It Works
 
+When enabled:
 - Users deposit supported assets and receive vault shares.
 - The vault deploys pooled assets into strategies (for example, V3 ranges or incentive-bearing pools).
 - Fees and rewards are periodically compounded back into the vault.

@@ -25,12 +25,12 @@ At a high level, the CurrentX stack looks like this:
 - UI (web app) connects to user wallets and MegaETH RPCs.
 - On-chain execution uses Uniswap V2 contracts, Uniswap V3 contracts, and CurrentX incentives (MasterChef).
 - Market data and protocol-wide stats are pulled from a subgraph (V2 schema) with on-chain fallbacks.
-- V3 swap quotes are produced off-chain by the Quoter V2 contract.
+- Swap quotes are produced from V2 pool reserves in the current app implementation.
 
 Execution paths:
 - V2 swaps and liquidity actions go through the V2 Router and Factory.
-- V3 swaps execute through the Universal Router, which can route across V3 pools and perform wrap/unwrap steps.
-- V3 liquidity is minted through the Nonfungible Position Manager.
+- V3 contracts are documented for protocol reference, but the current app does not route swaps through V3.
+- V3 liquidity is described in these docs for when V3 positions are enabled.
 - Farming actions are routed to MasterChef (stake V2 LP tokens).
 
 ## V2 vs V3 at a Glance

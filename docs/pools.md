@@ -11,7 +11,7 @@ title: Pools
 
 ## Pool List
 
-The Pools page lists all active pools on MegaETH and allows filtering by token pair, TVL, and fee tier.
+The Pools page lists active pools and allows filtering by token pair and TVL. In the current app implementation, the list is V2-only.
 
 ## Metrics
 
@@ -22,6 +22,8 @@ Common metrics shown for each pool:
 - APR (fee APR and, when applicable, incentive APR).
 
 ## V2 vs V3 Display
+
+Note: V3 pool rows are not currently shown in the app UI. The details below apply when V3 pool listings are enabled.
 
 V2 pools:
 - Identified by the pair name and a single 0.30% fee.

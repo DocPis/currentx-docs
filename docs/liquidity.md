@@ -12,6 +12,8 @@ title: Liquidity (V2 Pools + V3 Positions)
 - [Examples](#examples)
 - [Token Restrictions](#token-restrictions)
 
+The current app exposes V2 pools. V3 mechanics are documented below for protocol reference and for when V3 positions are enabled in the UI.
+
 ## V2 Pools
 
 V2 pools use fungible LP tokens and a constant product formula.
@@ -32,6 +34,8 @@ Fee claims (V2):
 - You claim fees by burning LP tokens when you remove liquidity.
 
 ## V3 Mechanics
+
+Note: V3 positions are not currently exposed in the app UI. This section describes how V3 concentrated liquidity works at the protocol level.
 
 Uniswap V3 introduces concentrated liquidity. Instead of providing liquidity across the entire price curve, you choose a price range where your liquidity is active.
 

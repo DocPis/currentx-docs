@@ -7,7 +7,7 @@ CurrentX is a MegaETH DEX with Uniswap V2 and Uniswap V3 liquidity. These docs c
 
 ## What you'll find
 
-- User flows for Dashboard, Swap (V2 + V3), Liquidity (V2 + V3 positions), Pools, Farms, and MegaVault.
+- User flows for Dashboard, Swap (V2), Liquidity (V2 pools with V3 mechanics reference), Pools, Farms, and MegaVault.
 - Developer references for network config and contract addresses.
 - Migration notes whenever contracts, addresses, or flows change.
 
