@@ -1,68 +1,65 @@
----
+﻿---
 id: swap
 title: Swap
 ---
 
-CurrentX swaps are Uniswap V3 compatible and executed through the Universal Router.
+## Table of Contents
+- [Supported Tokens](#supported-tokens)
+- [V2 vs V3 Routing](#v2-vs-v3-routing)
+- [Quotes and Slippage](#quotes-and-slippage)
+- [Route Display](#route-display)
+- [Execution](#execution)
+- [Example](#example)
 
-## Supported tokens (default list)
+## Supported Tokens
 
-- `ETH`, `WETH`, `USDC`, `CUSD`, `USDm`, `CRX`, `MEGA`.
-- Additional tokens appear after they are added to the custom token registry (Liquidity page).
+Default token list on MegaETH:
+- `ETH` (native)
+- `WETH`
+- `USDT0`
+- `USDm`
+- `CUSD`
+- `STCUSD`
+- `sUSDe`
+- `USDe`
+- `ezETH`
+- `wstETH`
+- `CRX`
+- `MEGA`
+- `BTCB`
+- `XBTC` (TBD, address not set)
 
-## Quoting and routing
+Tokens that are hidden or blocked for liquidity may not be selectable in Swap until enabled by the app config.
 
-Quotes come from the Uniswap V3 Quoter V2.
+## V2 vs V3 Routing
 
-Route options:
-- Direct pool if available.
-- One hop via `WETH` if direct liquidity is missing or worse.
+CurrentX supports both Uniswap V2 and Uniswap V3 liquidity. The router selection follows these rules:
+- V3 routes are preferred when a V3 pool exists for the pair and fee tier.
+- V2 routes are used as a fallback when V3 liquidity is missing or when the app is configured to prefer V2 pools for legacy pairs.
+- When enabled, routes can include a single hop via `WETH` to access deeper liquidity.
 
-Routing logic:
-- `Turbo` mode compares direct vs WETH hop output and chooses the better route.
-- `Protected` mode uses the direct pool if available; otherwise a single hop via `WETH`.
+## Quotes and Slippage
 
-Other behaviors:
-- Fee tiers scanned: `0.01%`, `0.05%`, `0.30%`, `1.00%`.
-- Quotes auto refresh every ~3 seconds while an amount is entered and refresh on window focus.
-- `ETH` <-> `WETH` uses direct wrap/unwrap (no LP fee, no router path).
+- V3 quotes are produced by Quoter V2.
+- V2 quotes use pool reserves via the V2 Router.
+- Slippage tolerance is user-configurable. The minimum received amount shown in the swap preview reflects your slippage setting.
 
-## Execution modes and slippage
+## Route Display
 
-Defaults:
-- Base slippage: `0.5%`.
-- Slippage cap: `3%` (max `5%`).
+The route panel shows:
+- Each hop in the route (direct or via `WETH`).
+- Whether the hop is V2 or V3.
+- For V3 hops, the fee tier used (0.01%, 0.05%, 0.30%, 1.00%).
 
-Auto slippage:
-- `Turbo`: `max(base, 0.6 * priceImpact + 0.45 * quoteVolatility + 0.35)` capped at 5%.
-- `Protected`: `max(0.05%, min(base or 0.3%, 0.8%))`.
-- Effective slippage = `min(autoSlippage, slippageCap)`.
+## Execution
 
-Pre-flight re-quote thresholds:
-- `Turbo`: re-quote if price moved by more than `1.5%`.
-- `Protected`: re-quote if price moved by more than `0.9%`.
+- V3 swaps execute through the Universal Router.
+- V2 swaps execute through the V2 Router.
+- `ETH` swaps include wrap/unwrap steps where required.
 
-Notes:
-- `priceImpact` is not computed for V3 pools (UI shows `--`).
+## Example
 
-## Approvals (ERC20 sells)
-
-Approvals:
-- Approvals are sent to Permit2 (spender for the Universal Router).
-
-Approval modes:
-- `Exact`: approve only the current swap amount.
-- `Unlimited`: approve `MAX_UINT256` once.
-
-## Execution details
-
-- Router call: `UniversalRouter.execute(...)` with `V3_SWAP_EXACT_IN`.
-- Deadline: 20 minutes.
-- ETH routes use `WRAP_ETH` / `UNWRAP_WETH` steps when needed.
-- A swap receipt panel shows expected vs executed output, min received, gas used, and the chosen route.
-
-## Common errors
-
-- "V3 router not configured": missing Universal Router or Quoter address in the active network preset.
-- "No V3 pools found": neither direct nor WETH hop pool exists for the pair.
-- Wallet rejection (`4001`, `ACTION_REJECTED`) or RPC rate limits.
+Swap `1 ETH` to `USDT0`:
+1. Select `ETH` as input and `USDT0` as output.
+2. The route display shows either a direct V3 pool (with fee tier) or a hop via `WETH` if liquidity is deeper.
+3. Confirm the quoted output and execute with your preferred slippage tolerance.

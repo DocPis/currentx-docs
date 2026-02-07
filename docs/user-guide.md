@@ -20,10 +20,15 @@ This guide covers wallet connection, network behavior, and how to navigate Curre
 
 ## Navigation (tabs)
 
-- [Dashboard](./dashboard): protocol TVL/volume and top pairs (subgraph backed).
-- [Swap](./swap): Uniswap V3 swaps via Universal Router with Turbo and Protected modes.
+- [Overview](./overview): protocol summary, architecture, and V2/V3 comparison.
+- [Dashboard](./dashboard): protocol TVL/volume and top pools (subgraph backed).
+- [Swap](./swap): V2/V3 routing, quotes, and slippage.
 - [Liquidity](./liquidity): V2 pools (LP tokens) and V3 concentrated positions (NFTs).
+- [Pools](./pools): pool list, metrics, and APR breakdowns.
 - [Farms](./farms): stake V2 LP tokens in MasterChef to earn CRX.
+- [MegaVault](./megavault): managed liquidity vaults.
+- [FAQ / Glossary](./faq): definitions and common questions.
+- [Contracts](./contracts): network and on-chain addresses.
 
 ## Custom tokens (optional)
 

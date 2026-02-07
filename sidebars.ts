@@ -14,16 +14,17 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  */
 const sidebars: SidebarsConfig = {
   docs: [
+    'overview',
     'intro',
     {
       type: 'category',
       label: 'User guide',
-      items: ['user-guide', 'dashboard', 'swap', 'liquidity', 'farms'],
+      items: ['user-guide', 'dashboard', 'swap', 'liquidity', 'pools', 'farms', 'megavault', 'faq'],
     },
     {
       type: 'category',
       label: 'Technical details',
-      items: ['architecture', 'onchain-references', 'migration-guide', 'changelog'],
+      items: ['contracts', 'architecture', 'onchain-references', 'migration-guide', 'changelog'],
     },
   ],
 };
