@@ -17,12 +17,12 @@ title: Greetings!
 authors:
   - name: Joel Marcey
     title: Co-creator of Docusaurus 1
-    url: https://github.com/JoelMarcey
-    image_url: https://github.com/JoelMarcey.png
+    url: https://example.com/joel-marcey
+    image_url: https://example.com/joel-marcey.png
   - name: Sebastien Lorber
     title: Docusaurus maintainer
     url: https://sebastienlorber.com
-    image_url: https://github.com/slorber.png
+    image_url: https://example.com/sebastien-lorber.png
 tags: [greetings]
 ---
 

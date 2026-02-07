@@ -34,7 +34,7 @@ This page summarizes how the CurrentX dApp is wired to MegaETH, which contracts 
 - Execution: V2 Router `swapExact*` methods.
 - Approvals: ERC20 approvals target the V2 Router.
 
-Note: The current app repo does not wire V3 swaps. V3 contracts are documented for protocol reference and future expansion.
+Note: The current app UI does not route swaps through V3. V3 contracts are documented for protocol reference and future expansion.
 
 ## Liquidity
 

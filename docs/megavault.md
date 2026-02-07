@@ -13,7 +13,7 @@ title: MegaVault
 
 ## Status
 
-The current app repo does not include MegaVault contracts, strategies, or fee configuration. The sections below describe the intended model, but concrete strategy/fee details are not defined in this codebase yet.
+MegaVault contracts, strategies, and fee configuration are not yet exposed in the app UI. The sections below describe the intended model, but concrete strategy/fee details are not finalized here.
 
 ## What It Is
 
