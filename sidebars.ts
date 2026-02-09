@@ -16,6 +16,7 @@ const sidebars: SidebarsConfig = {
   docs: [
     'overview',
     'intro',
+    'tokenomics',
     {
       type: 'category',
       label: 'User guide',

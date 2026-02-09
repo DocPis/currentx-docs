@@ -38,6 +38,7 @@ title: Contracts and Addresses
 | Tick Lens | `0xd8fe4a55f7f79d2937637671923e59d8488683c3` |
 | Swap Router | `0x5a8bc70674d82ac2bc04be91cf172f60169c50b3` |
 | Position Manager | `0xa02e90a5f5ef73c434f5a7e6a77e6508f009cb9d` |
+| V3 Staker | `0xc6a9dB70b5618DfbCA05Fa7db11bEC48782D5590` |
 | Multicall | `0x47163ef055ac5efdfdd946303f86820736bfbb8d` |
 | Migrator | `0xAA5B9F20e788063CD1e7e482c9F55b8c803E5456` |
 | Pool init code hash | `0xc5b9323f38f7ec5daae18bf2b6696c143def3728c6f6ed2aa34dcb31ad4fbf3f` |
@@ -56,7 +57,7 @@ title: Contracts and Addresses
 | USDe | `0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34` | |
 | ezETH | `0x09601A65e7de7BC8A19813D263dD9E98bFdC3c57` | |
 | wstETH | `0x601aC63637933D88285A025C685AC4e9a92a98dA` | |
-| CRX | `0xDEdDFD6F6fD2eDa3B0bC01c3Dfa03F2eA6f40504` | |
+| CRX | `0xBd5e387fa453ceBf03B1A6a9dFe2a828b93AA95B` | |
 | MEGA | `0x28B7E77f82B25B95953825F1E3eA0E36c1c29861` | |
 | BTCB | `0xB0F70C0bD6FD87dbEb7C10dC692a2a6106817072` | |
 | XBTC | `TBD` | Address not set in current config |
