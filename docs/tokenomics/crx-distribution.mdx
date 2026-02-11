@@ -1,0 +1,149 @@
+---
+title: CRX Distribution & Leaderboard Rewards
+description: CRX token allocation, leaderboard seasons, points, claim rules, and whitelist activation rewards.
+---
+
+# CRX Distribution & Leaderboard Rewards
+
+This page outlines the **CRX token distribution** and the **leaderboard reward mechanics**.
+
+:::note Supply
+**Total supply:** **1,000,000 CRX**
+:::
+
+## Distribution Overview
+
+| Bucket | % | CRX | Notes |
+|---|---:|---:|---|
+| LP (Genesis) | 25% | 250,000 | Long lock + transparency on ownership/lock |
+| Leaderboard Rewards (Seasons) | 40% | 400,000 | Rewards for DEX usage + LP on target pools |
+| Partnerships / MM / Aggregators | 15% | 150,000 | Milestone-based grants (integration + flow) |
+| Treasury / Runway | 10% | 100,000 | Infrastructure, future incentives, contingency |
+| Security / Bug Bounty / Audits | 5% | 50,000 | Public bounties + audit/contest budget |
+| Team / Contributors (Vesting) | 5% | 50,000 | 12–24 months vesting (optional) |
+| **Total** | **100%** | **1,000,000** |  |
+
+:::tip Community-first option
+If you prefer a fully community allocation, the **Team / Contributors** bucket can be reallocated to **Treasury** or **Leaderboard Rewards**.
+:::
+
+---
+
+## Leaderboard Rewards Schedule
+
+:::note Rewards allocation
+Total rewards allocated to leaderboard seasons: **400,000 CRX**
+:::
+
+| Season | CRX Allocation | Notes |
+|---|---:|---|
+| Season 1 | 120,000 | Early bootstrapping |
+| Season 2 | 90,000 | Maintain momentum |
+| Season 3 | 70,000 | Reduced emissions |
+| Season 4 | 50,000 | Consolidation |
+| Season 5 | 40,000 | Sustain |
+| Season 6 | 30,000 | Sustain / transition |
+| **Total** | **400,000** |  |
+
+---
+
+## Season Timing
+
+:::note Season 1 duration
+- **Season 1 duration:** **28 days** (4 weeks)
+- **Finalization window:** **48 hours** after season end (anti-wash checks + final points calculation)
+- **Claim opens:** immediately after finalization completes
+:::
+
+---
+
+## Whitelist Rewards (Activation Model)
+
+:::caution Important
+Whitelist rewards are **not additional supply**. They are funded from existing allocations (typically **Treasury / Runway** or **Leaderboard Rewards**).
+:::
+
+:::note Budget (cap)
+- **Whitelist budget cap:** **1% of supply = 10,000 CRX**
+:::
+
+### Per-wallet rewards
+- **Base reward:** **20–50 CRX** for being whitelisted (claimable)
+- **Activation bonus:** **50–150 CRX** only if, within **X days**, the wallet completes:
+  - **1 swap** (any size) **AND**
+  - either **$50–$200 cumulative volume** OR **a micro LP** on **CRX/ETH** or **CRX/USDM**
+
+### Payment schedule
+- **30%** claimable immediately
+- **70%** streamed/vested over **30–60 days**
+
+---
+
+## Points System
+
+### Base Points
+- **1 USD traded = 1 point**
+
+### Multipliers
+- **Swap:** 1×
+- **Add Liquidity:** 2× or 3× (pool-dependent)
+
+:::tip Boosted pools
+Multipliers/boosts apply only on:
+- **CRX/ETH**
+- **CRX/USDM**
+:::
+
+---
+
+## Rewards Distribution Formula
+
+At the end of each season:
+
+`CRX_user = CRX_season × (points_user / total_points_season)`
+
+Where:
+- `CRX_user` = user rewards for the season
+- `CRX_season` = total CRX allocated for that season
+- `points_user` = user points earned during the season
+- `total_points_season` = total points earned by all participants during the season
+
+---
+
+## Claim & Vesting (Anti-Dump)
+
+:::caution Recommended claim schedule
+To reduce immediate sell pressure:
+- **30%** claimable immediately
+- **70%** streamed/vested linearly over **30–60 days**
+:::
+
+:::note More aggressive option
+- **20%** claimable immediately
+- **80%** streamed/vested over **60–90 days**
+:::
+
+---
+
+## Anti-Wash Trading Measures (Recommended)
+
+:::caution Fair-play rules
+To keep the leaderboard fair, we apply one or more of the following:
+- **Points based on fees paid** (instead of pure volume), OR
+- **Caps / diminishing returns per wallet**, AND/OR
+- **Filtering obvious loop patterns** (repeated self-routing / rapid back-and-forth)
+:::
+
+---
+
+## Partnerships / MM / Aggregator Grants (Milestone-Based)
+
+:::tip Milestone-based releases
+Partnership grants are released by milestones to ensure alignment and sustained flow.
+:::
+
+| Step | % of Grant | Condition |
+|---|---:|---|
+| Step 1 | 30% | Integration live (routing / MM active) |
+| Step 2 | 40% | Flow KPI met (e.g., X days sustained volume) |
+| Step 3 | 30% | Retention for 30–60 days + quality flow |

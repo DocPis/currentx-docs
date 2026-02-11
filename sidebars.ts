@@ -16,7 +16,14 @@ const sidebars: SidebarsConfig = {
   docs: [
     'overview',
     'intro',
-    'tokenomics',
+    {
+      type: 'category',
+      label: 'Tokenomics',
+      items: [
+        'tokenomics',
+        {type: 'doc', id: 'tokenomics/crx-distribution', label: 'CRX Distribution & Leaderboard Rewards'},
+      ],
+    },
     {
       type: 'category',
       label: 'User guide',

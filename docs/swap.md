@@ -43,7 +43,7 @@ Path selection rules (V2):
 
 - Quotes are computed from V2 pool reserves using the V2 Router `getAmountsOut` path.
 - Slippage tolerance is user-configurable. The minimum received amount shown in the swap preview reflects your slippage setting.
-- `ETH` <-> `WETH` swaps use direct wrap/unwrap (no LP fee).
+- `ETH` &lt;-&gt; `WETH` swaps use direct wrap/unwrap (no LP fee).
 
 ## Route Display
 
