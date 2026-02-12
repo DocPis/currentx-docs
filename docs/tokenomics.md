@@ -3,10 +3,6 @@ id: tokenomics
 title: Tokenomics
 ---
 
-
-- Last updated: `2026-02-12`
-- Tokenomics version: `v20260212`
-
 ## Table of Contents
 - [Official Allocation (Active)](#official-allocation-active)
 - [Leaderboard Season Budget](#leaderboard-season-budget)
