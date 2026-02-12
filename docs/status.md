@@ -5,8 +5,6 @@ title: Status
 
 > This page is the source of truth for what is live.
 
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 | Feature | Status | Contracts used (high level) | Approvals / spender | Notes |
 | --- | --- | --- | --- | --- |
@@ -18,3 +16,4 @@ title: Status
 | Subgraph | Beta | V2-compatible subgraph endpoint (`VITE_UNIV2_SUBGRAPH`) | N/A | On-chain fallback is used when subgraph is missing data or delayed. |
 | Realtime WS | Planned | Not wired in current frontend code | N/A | Current frontend relies on RPC + periodic refresh for live updates. |
 | Points / Leaderboard | Planned | Tokenomics policy page (off-chain scoring + seasonal distribution) | N/A | Season schedule is documented; live app UI for points is not deployed. |
+

@@ -3,9 +3,6 @@ id: user-guide
 title: User Guide
 ---
 
-> Status: Live baseline
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 This guide covers wallet connection, network behavior, and tab navigation in the current app.
 
@@ -47,3 +44,4 @@ Docs pages that provide extended reference:
 - Wallet rejection: error code `4001` / `ACTION_REJECTED`.
 - No wallet detected: open the dApp in an injected-wallet browser context.
 - Wrong network: switch to Sepolia and retry.
+

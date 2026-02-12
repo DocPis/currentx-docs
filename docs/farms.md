@@ -3,9 +3,6 @@ id: farms
 title: Farms (stake LP for CRX)
 ---
 
-> Status: Live
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [Contracts](#contracts)
@@ -38,3 +35,4 @@ Total APR is the sum of emissions APR and fee APR. Values are estimates and chan
 
 - Farm list refreshes periodically and on page focus.
 - User data refreshes after on-chain activity and on new blocks.
+

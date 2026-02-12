@@ -3,9 +3,6 @@ id: changelog
 title: Changelog
 ---
 
-> Status: Maintained
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## 2026-02-12
 
@@ -19,3 +16,4 @@ title: Changelog
 
 - Initial migration notes were published.
 - Those notes are now superseded by the `2026-02-12` baseline where swap routing is documented as V2 live.
+

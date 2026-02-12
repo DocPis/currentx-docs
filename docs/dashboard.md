@@ -3,9 +3,6 @@ id: dashboard
 title: Dashboard
 ---
 
-> Status: Live
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [What It Shows](#what-it-shows)
@@ -40,3 +37,4 @@ The Top Pools panel surfaces the highest-liquidity or highest-volume pools, incl
 
 - Metrics refresh periodically and on demand.
 - If subgraph data is temporarily unavailable, the UI keeps running with reduced/fallback data.
+

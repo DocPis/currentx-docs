@@ -3,9 +3,6 @@ id: megavault
 title: MegaVault
 ---
 
-> Status: Planned
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [Status](#status)
@@ -52,3 +49,4 @@ Vault fees, if any, are displayed in the UI. These can include management fees, 
 - Impermanent loss and volatility risk.
 - Liquidity risk if the vault strategy is concentrated or thinly traded.
 - Performance can lag manual strategies in fast-moving markets.
+

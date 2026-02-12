@@ -3,9 +3,6 @@ id: onchain-references
 title: On-chain References
 ---
 
-> Status: Live baseline
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [Network](#network)
@@ -35,3 +32,4 @@ No dedicated app-level WebSocket endpoint is configured in the current frontend 
 ## Contracts
 
 Full addresses are documented in [Contracts](./contracts).
+

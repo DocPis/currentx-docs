@@ -3,9 +3,6 @@ id: faq
 title: FAQ and Glossary
 ---
 
-> Status: Maintained
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [Glossary](#glossary)
@@ -34,3 +31,4 @@ Why is my transaction failing on wallet connect or swap?
 
 Can I use V3 positions in the current app UI?
 - Not yet. V3 position flows are planned and are not currently live.
+

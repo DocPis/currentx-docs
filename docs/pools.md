@@ -3,9 +3,6 @@ id: pools
 title: Pools
 ---
 
-> Status: Live (V2 list)
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [Pool List](#pool-list)
@@ -35,3 +32,4 @@ APR values are estimates and can change quickly with market activity.
 ## V3 Listing Status
 
 V3 pool rows are not currently live in the app UI.
+

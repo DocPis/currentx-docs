@@ -3,15 +3,11 @@ id: tokenomics
 title: Tokenomics
 ---
 
-> Status: Official
-> Last updated: 2026-02-12
-> Tokenomics version: v20260212
 
 ## Table of Contents
 - [Official Allocation (Active)](#official-allocation-active)
 - [Leaderboard Season Budget](#leaderboard-season-budget)
 - [Claim](#claim)
-- [Alternative Example (Not Active)](#alternative-example-not-active)
 
 ## Official Allocation (Active)
 
@@ -48,16 +44,3 @@ Leaderboard rewards pool: `400,000 CRX`.
 
 Rewards are claimable at the end of each season, once finalization is complete.
 
-## Alternative Example (Not Active)
-
-:::warning Not active allocation
-The split below is a legacy example only and is not the current live tokenomics policy.
-:::
-
-| Bucket | % |
-| --- | ---: |
-| Initial POL | 25% |
-| Incentives | 25% |
-| Team + core treasury | 25% |
-| Partnerships / market-making / integrations | 15% |
-| Airdrop + points leaderboard | 10% |

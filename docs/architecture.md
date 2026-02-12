@@ -3,9 +3,6 @@ id: architecture
 title: Architecture and Flows
 ---
 
-> Status: Live
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 This page summarizes how the CurrentX dApp is wired today, which contracts it uses, and where the runtime configuration lives.
 
@@ -61,3 +58,4 @@ Core addresses from current config:
 - Permit2
 
 These are not used by the current swap implementation and should not be treated as live routing dependencies.
+

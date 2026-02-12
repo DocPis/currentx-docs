@@ -3,9 +3,6 @@ id: overview
 title: Overview
 ---
 
-> Status: Live baseline
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [What is CurrentX](#what-is-currentx)
@@ -57,3 +54,4 @@ See [Status](./status) for the canonical live state.
 - [MegaVault](./megavault): roadmap-level vault documentation.
 - [FAQ / Glossary](./faq): definitions and common questions.
 - [Contracts](./contracts): on-chain addresses pulled from app config.
+

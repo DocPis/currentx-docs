@@ -3,9 +3,6 @@ id: swap
 title: Swap
 ---
 
-> Status: Live
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [Supported Tokens](#supported-tokens)
@@ -61,3 +58,4 @@ Swap `1 ETH` to `USDC`:
 1. Select `ETH` as input and `USDC` as output.
 2. The app uses a direct V2 pair or a one-hop route via `WETH`.
 3. Review min received and submit the swap transaction.
+

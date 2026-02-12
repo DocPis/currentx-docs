@@ -3,9 +3,6 @@ id: contracts
 title: Contracts and Addresses
 ---
 
-> Status: Live baseline
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [Network](#network)
@@ -57,3 +54,4 @@ No V3 Factory, Quoter V2, Universal Router, Permit2, or Position Manager address
 
 - These values are pulled from `../currentx-dex/src/config/addresses.js` and `../currentx-dex/src/config/tokens.js`.
 - If a new deployment updates addresses, update this page and `docs/status.md` in the same change.
+

@@ -3,9 +3,6 @@ id: migration-guide
 title: Migration Guide
 ---
 
-> Status: Active baseline
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 This guide is for integrators updating older CurrentX docs/integrations to match the live frontend implementation.
 
@@ -49,3 +46,4 @@ This guide is for integrators updating older CurrentX docs/integrations to match
 - Confirm V2 Router spender is used for ERC20 swap approvals.
 - Validate subgraph env vars and fallback behavior.
 - Re-test swap, liquidity, and farm flows end-to-end.
+

@@ -3,9 +3,6 @@ id: liquidity
 title: Liquidity
 ---
 
-> Status: Live (V2), V3 planned
-> Last updated: 2026-02-12
-> Docs version: v20260212
 
 ## Table of Contents
 - [V2 Pools (Live)](#v2-pools-live)
@@ -56,3 +53,4 @@ When enabled, this docs section will be expanded with:
 ## Token Restrictions
 
 Some tokens can be hidden or blocked by app configuration. Custom tokens can be added, but unsupported tokens are not guaranteed to be actionable.
+
