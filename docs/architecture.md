@@ -54,7 +54,3 @@ Core swap addresses from config:
 - Farms tab is based on V3 Staker incentives.
 - Position NFTs can be staked/unstaked and rewards claimed per incentive.
 - Incentive creation flow is available for authorized operators.
-
-## Legacy contracts present in config
-
-`MASTER_CHEF_ADDRESS` remains configured, but current farms UX is V3 Staker-based.
