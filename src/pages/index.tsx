@@ -98,7 +98,7 @@ export default function Home(): ReactNode {
                 <div className={styles.linkDesc}>Open the Sepolia dApp for swaps, liquidity, and farming.</div>
               </a>
               <a className={styles.linkCard} href="https://t.me/currentxdex" target="_blank" rel="noreferrer">
-                <img className={styles.socialLogo} src={telegramIcon} alt="Telegram logo" />
+                <img className={`${styles.socialLogo} ${styles.socialLogoBoost}`} src={telegramIcon} alt="Telegram logo" />
                 <div className={styles.linkTitle}>Telegram</div>
                 <div className={styles.linkDesc}>Join the chat for quick updates and support.</div>
               </a>
@@ -108,7 +108,7 @@ export default function Home(): ReactNode {
                 <div className={styles.linkDesc}>Follow releases and product updates.</div>
               </a>
               <a className={styles.linkCard} href="https://discord.gg/g33rC3RT" target="_blank" rel="noreferrer">
-                <img className={styles.socialLogo} src={discordIcon} alt="Discord logo" />
+                <img className={`${styles.socialLogo} ${styles.socialLogoBoost}`} src={discordIcon} alt="Discord logo" />
                 <div className={styles.linkTitle}>Discord</div>
                 <div className={styles.linkDesc}>Connect with the team and other builders.</div>
               </a>

@@ -249,6 +249,11 @@
   margin-bottom: 0.5rem;
 }
 
+.socialLogoBoost {
+  width: 28px;
+  height: 28px;
+}
+
 .linkTitle {
   font-size: 1.05rem;
   color: #f8fafc;
