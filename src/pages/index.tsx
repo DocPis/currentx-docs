@@ -1,4 +1,4 @@
-﻿import type {ReactNode} from 'react';
+import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -15,17 +15,17 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <p className={styles.kicker}>CurrentX - Sepolia</p>
+            <p className={styles.kicker}>CurrentX - MegaETH Mainnet</p>
             <Heading as="h1" className={styles.heroTitle}>
-              Ship swaps, liquidity, and farming with confidence
+              Ship swaps, liquidity, and incentives with confidence
             </Heading>
             <p className={clsx('hero__subtitle', styles.heroSubtitle)}>
-              Everything you need to build on CurrentX: live Uniswap V2 routing
-              on Sepolia, subgraph-backed stats, and CRX farming via MasterChef.
+              Everything you need to build on CurrentX: smart swap routing (V3 + V2),
+              Universal Router execution, and live liquidity/farming flows on MegaETH.
             </p>
             <div className={styles.chips}>
-              <span>Swap V2 live</span>
-              <span>Approvals to V2 Router</span>
+              <span>Smart V3 + V2 swap</span>
+              <span>Permit2 + Universal Router</span>
               <span>Status page as source of truth</span>
             </div>
             <div className={styles.buttons}>
@@ -47,15 +47,15 @@ function HomepageHeader() {
             <ul className={styles.cardList}>
               <li>
                 <span className={styles.dot} />
-                Swap flow with allowance checks and ETH/WETH wrap/unwrap.
+                Swap flow with smart V3/V2 routing, allowance checks, and ETH/WETH wrap/unwrap.
               </li>
               <li>
                 <span className={styles.dot} />
-                Liquidity flows with balanced suggestions and on-chain TVL fallback.
+                Liquidity flows with V2 pools and V3 position management.
               </li>
               <li>
                 <span className={styles.dot} />
-                Farms powered by MasterChef with CRX emission APR.
+                Farms powered by V3 Staker incentives.
               </li>
               <li>
                 <span className={styles.dot} />
@@ -81,7 +81,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="CurrentX Docs"
-      description="CurrentX swaps, liquidity, and CRX farming on Sepolia">
+      description="CurrentX swaps, liquidity, and incentives on MegaETH">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
@@ -95,10 +95,10 @@ export default function Home(): ReactNode {
               <a className={styles.linkCard} href="https://currentx.app/" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>App</span>
                 <div className={styles.linkTitle}>Launch CurrentX</div>
-                <div className={styles.linkDesc}>Open the Sepolia dApp for swaps, liquidity, and farming.</div>
+                <div className={styles.linkDesc}>Open the MegaETH dApp for swaps, liquidity, and farms.</div>
               </a>
               <a className={styles.linkCard} href="https://t.me/currentxdex" target="_blank" rel="noreferrer">
-                <img className={`${styles.socialLogo} ${styles.socialLogoBoost}`} src={telegramIcon} alt="Telegram logo" />
+                <img className={styles.socialLogo} src={telegramIcon} alt="Telegram logo" />
                 <div className={styles.linkTitle}>Telegram</div>
                 <div className={styles.linkDesc}>Join the chat for quick updates and support.</div>
               </a>
@@ -108,7 +108,7 @@ export default function Home(): ReactNode {
                 <div className={styles.linkDesc}>Follow releases and product updates.</div>
               </a>
               <a className={styles.linkCard} href="https://discord.gg/g33rC3RT" target="_blank" rel="noreferrer">
-                <img className={`${styles.socialLogo} ${styles.socialLogoBoost}`} src={discordIcon} alt="Discord logo" />
+                <img className={styles.socialLogo} src={discordIcon} alt="Discord logo" />
                 <div className={styles.linkTitle}>Discord</div>
                 <div className={styles.linkDesc}>Connect with the team and other builders.</div>
               </a>

@@ -1,4 +1,4 @@
-﻿---
+---
 id: user-guide
 title: User Guide
 ---
@@ -8,11 +8,11 @@ This guide covers wallet connection, network behavior, and tab navigation in the
 
 ## Wallet connection and network
 
-- Supported wallets: MetaMask, Trust Wallet, Rabby.
-- Connect flow uses `eth_requestAccounts` through the selected injected wallet.
-- Current target network: Sepolia (`0xaa36a7` / `11155111`).
-- If the wallet is on the wrong network, the header shows `Wrong network` and transactions may fail until you switch manually in wallet settings.
-- Session persistence: `sessionStorage` key `cx_session_connected` enables auto-reconnect behavior after refresh.
+- Supported injected wallets include MetaMask, Trust Wallet, and Rabby.
+- Connect flow uses `eth_requestAccounts` and can prompt network add/switch to MegaETH.
+- Current target network: MegaETH (`0x10e6` / `4326`).
+- If wallet is on the wrong network, the header shows `Wrong network` and transactions can fail until switch is completed.
+- Session persistence uses `sessionStorage` key `cx_session_connected` for reconnect behavior.
 
 ## Navigation (tabs)
 
@@ -20,9 +20,12 @@ App tabs currently live:
 - `Dashboard`
 - `Swap`
 - `Liquidity`
+- `Pools`
+- `Points`
 - `Farms`
+- `MegaVault`
 
-Docs pages that provide extended reference:
+Docs pages for deeper reference:
 - [Overview](./overview)
 - [Status](./status)
 - [Contracts](./contracts)
@@ -35,13 +38,13 @@ Docs pages that provide extended reference:
 
 ## Data refresh
 
-- Wallet balances refresh on new blocks.
+- Wallet balances refresh on new blocks and periodic intervals.
+- Realtime updates are available on MegaETH websocket feeds (`stateChanges`, `miniBlocks`) when endpoints are configured.
 - Pool and dashboard stats are subgraph-backed with on-chain fallbacks.
-- If subgraph calls fail, UI warnings are shown and core actions remain available.
 
 ## Common issues
 
 - Wallet rejection: error code `4001` / `ACTION_REJECTED`.
 - No wallet detected: open the dApp in an injected-wallet browser context.
-- Wrong network: switch to Sepolia and retry.
-
+- Wrong network: switch to MegaETH and retry.
+- Swap approval error: complete Permit2 + Universal Router allowance flow before retrying.

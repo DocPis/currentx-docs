@@ -1,29 +1,29 @@
-﻿---
+---
 id: intro
 title: Welcome to CurrentX
 ---
 
 
-CurrentX docs track the live dApp implementation in `../currentx-dex`.
+CurrentX docs track the live dApp implementation in `currentx-dex`.
 
 ## What you'll find
 
-- User flows for Dashboard, Swap, Liquidity, Pools, and Farms.
-- Contract and network references taken from the current app config.
-- Tokenomics and season timing with a single canonical distribution table.
+- User flows for Dashboard, Swap, Liquidity, Pools, Points, Farms, and MegaVault.
+- Contract and network references taken from current app config.
+- Tokenomics and season timing with one canonical distribution table.
 - A live status snapshot in [Status](./status) (source of truth for what is live).
 
 ## Network scope
 
-- Network: Ethereum Sepolia.
-- Chain ID (hex): `0xaa36a7`.
-- Chain ID (dec): `11155111`.
+- Network: MegaETH.
+- Chain ID (hex): `0x10e6`.
+- Chain ID (dec): `4326`.
 
 ## Current execution baseline
 
-- Swap routing: Uniswap V2 only.
-- Swap execution: `swapExactETHForTokens`, `swapExactTokensForETH`, `swapExactTokensForTokens`.
-- Quotes: computed from V2 pair reserves (constant product math).
-- ERC20 approval spender: V2 Router (`0xf9ac1ee27a2db3a471e1f590cd689dee6a2c391d`).
-- Permit2 and Universal Router are not used by the current live swap flow.
-
+- Swap routing: smart mode over V3 and V2.
+- Quote engines: V3 Quoter V2 and V2 reserve-based quote paths.
+- Swap execution: Universal Router for V3, V2, and split routes.
+- ERC20 approval spenders for swap: Permit2, then Universal Router allowance via Permit2.
+- Liquidity: V2 pools and V3 positions are both live in UI.
+- Farms: V3 Staker incentive flows are live.

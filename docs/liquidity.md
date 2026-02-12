@@ -1,56 +1,56 @@
-﻿---
+---
 id: liquidity
 title: Liquidity
 ---
 
 
 ## Table of Contents
-- [V2 Pools (Live)](#v2-pools-live)
-- [Current Pool Set](#current-pool-set)
-- [V3 Positions (Planned)](#v3-positions-planned)
+- [V2 Pools](#v2-pools)
+- [V3 Positions](#v3-positions)
+- [Approvals and Spenders](#approvals-and-spenders)
+- [Pool Discovery](#pool-discovery)
 - [Token Restrictions](#token-restrictions)
 
-## V2 Pools (Live)
+## V2 Pools
 
-V2 pools use fungible LP tokens and a constant-product AMM.
+V2 pools use fungible LP tokens and constant-product AMM behavior.
 
 Add liquidity:
-- Select a pair and enter token amounts.
-- The UI suggests balanced amounts from live reserves.
-- Approve token spending to the V2 Router.
+- Select a pair and enter amounts.
+- The UI suggests balanced amounts from live reserves when available.
+- Approve tokens to V2 Router.
 - Submit `addLiquidity` / `addLiquidityETH`.
 
 Remove liquidity:
 - Enter LP amount to burn.
-- Approve LP token to the V2 Router if needed.
+- Approve LP token to V2 Router if needed.
 - Submit `removeLiquidity` / `removeLiquidityETH`.
 
-Fee realization:
-- V2 fees accrue in pool reserves.
-- Fees are realized when LP tokens are burned.
+## V3 Positions
 
-## Current Pool Set
+V3 position management is live in the Liquidity section.
 
-The current frontend ships with these base pools:
-- `CRX/WETH`
-- `WETH/USDC`
-- `WETH/DAI`
-- `WETH/USDT`
-- `WBTC/USDC`
-- `DAI/USDC`
-- `USDT/USDC`
-- `ETH/USDC`
+Available flows:
+- Select token pair and fee tier.
+- Set price range.
+- Mint new position.
+- Increase/decrease liquidity.
+- Collect accrued fees.
 
-## V3 Positions (Planned)
+Position manager used by UI:
+- `0xa02e90a5f5ef73c434f5a7e6a77e6508f009cb9d`
 
-V3 position management is not currently live in the frontend runtime.
+## Approvals and Spenders
 
-When enabled, this docs section will be expanded with:
-- fee tier selection,
-- tick/range configuration,
-- position mint/collect/increase/decrease flows.
+- V2 token and LP approvals target V2 Router.
+- V3 token approvals target V3 Position Manager.
+- If a position is staked in Farms, position approval to V3 Staker can be required.
+
+## Pool Discovery
+
+- Pool data is sourced from V2/V3 subgraphs with fallback logic.
+- The UI can jump from Pools into Liquidity with preselected pair context.
 
 ## Token Restrictions
 
-Some tokens can be hidden or blocked by app configuration. Custom tokens can be added, but unsupported tokens are not guaranteed to be actionable.
-
+Some tokens can be hidden/disabled by network config. Custom tokens can be added, but unsupported tokens are not guaranteed to be actionable.

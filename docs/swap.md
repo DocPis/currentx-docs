@@ -1,4 +1,4 @@
-﻿---
+---
 id: swap
 title: Swap
 ---
@@ -6,56 +6,64 @@ title: Swap
 
 ## Table of Contents
 - [Supported Tokens](#supported-tokens)
-- [Routing (V2)](#routing-v2)
+- [Routing (Smart: V3 + V2)](#routing-smart-v3--v2)
 - [Quotes and Slippage](#quotes-and-slippage)
-- [Approvals and Spender](#approvals-and-spender)
+- [Approvals and Spenders](#approvals-and-spenders)
 - [Execution](#execution)
 - [Example](#example)
 
 ## Supported Tokens
 
-Default token list in the current app config:
+Default token registry is loaded from the active network config and includes:
 - `ETH` (native)
 - `WETH`
-- `USDC`
-- `USDT`
-- `DAI`
-- `WBTC`
 - `CRX`
+- `USDT0`
+- `CUSD`
+- `STCUSD`
+- `USDe`
+- `USDm`
+- `MEGA`
 
 Custom tokens can be added from the UI and are persisted locally.
 
-## Routing (V2)
+## Routing (Smart: V3 + V2)
 
-In the current app implementation, swaps are executed through Uniswap V2 only.
+In the live app, route preference is smart:
+- V3 routes are explored first across available fee tiers.
+- V2 routes are available as fallback and for split optimization.
+- Split routes can combine V3 and V2 legs when output is better.
 
-Path selection rules:
-- Direct pair if it exists in the V2 Factory.
-- Single hop via `WETH` if no direct pair exists.
+`ETH` to `WETH` conversions use direct wrap/unwrap, not pool routing.
 
 ## Quotes and Slippage
 
-- Quotes are computed from V2 pool reserves using constant-product math (`x*y=k`) in `src/services/amm.js`.
+- V3 quote path uses Uniswap V3 Quoter V2.
+- V2 quote path uses reserve-based quote logic.
 - Slippage tolerance is user-configurable.
-- `ETH` and `WETH` use direct wrap/unwrap (no LP fee).
+- The app can re-quote before submit when price movement exceeds guard thresholds.
 
-## Approvals and Spender
+## Approvals and Spenders
 
-- ERC20 approvals target the V2 Router only.
-- V2 Router address (from app config): `0xf9ac1ee27a2db3a471e1f590cd689dee6a2c391d`.
-- Permit2 is not used in the current swap flow.
+For ERC20 sell tokens:
+- First approval: ERC20 allowance to `Permit2` (`0x000000000022D473030F116dDEE9F6B43aC78BA3`).
+- Second allowance: Permit2 allowance to Universal Router (`0x2c61d16Ad68f030bec95370Ab8a0Ba60e7E7B0a6`).
+
+Direct `ETH` to `WETH` wrap/unwrap does not require token approvals.
 
 ## Execution
 
-Swaps execute through the V2 Router using:
-- `swapExactETHForTokens`
-- `swapExactTokensForETH`
-- `swapExactTokensForTokens`
+All non-wrap swaps execute through Universal Router commands:
+- `V3_SWAP_EXACT_IN`
+- `V2_SWAP_EXACT_IN`
+- `WRAP_ETH` / `UNWRAP_WETH`
+
+This means both V3 and V2 routes are executed through the same router surface.
 
 ## Example
 
-Swap `1 ETH` to `USDC`:
-1. Select `ETH` as input and `USDC` as output.
-2. The app uses a direct V2 pair or a one-hop route via `WETH`.
-3. Review min received and submit the swap transaction.
-
+Swap `1 ETH` to `USDT0`:
+1. Select `ETH` as input and `USDT0` as output.
+2. The app computes a smart route (V3, V2, or split).
+3. Review min received and slippage.
+4. Submit the transaction and verify on MegaETH explorer.

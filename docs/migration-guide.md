@@ -1,49 +1,52 @@
-﻿---
+---
 id: migration-guide
 title: Migration Guide
 ---
 
 
-This guide is for integrators updating older CurrentX docs/integrations to match the live frontend implementation.
+This guide is for integrators updating old CurrentX assumptions to the current live frontend runtime.
 
 ## 1) Network preset
 
-- Network target is Sepolia (`chainId 0xaa36a7`, decimal `11155111`).
-- Read-only RPC uses `VITE_SEPOLIA_RPC` (fallback `https://1rpc.io/sepolia`).
-- Subgraph envs:
-  - `VITE_UNIV2_SUBGRAPH`
-  - `VITE_UNIV2_SUBGRAPH_API_KEY` (optional)
+- Target network is MegaETH (`chainId 0x10e6`, decimal `4326`).
+- Explorer: `https://megaeth.blockscout.com`.
+- RPC is loaded from active network preset plus env overrides.
 
-## 2) Swap migration (V2)
+## 2) Swap migration
 
-- Swap routing is Uniswap V2 only.
-- Quotes are computed from pair reserves (not from V3 quoter paths).
-- Execution uses V2 Router `swapExact*` functions.
-- ERC20 approvals must target the V2 Router spender.
+- Swap is not V2-only anymore.
+- Current routing is smart over V3 and V2.
+- Quotes use V3 Quoter V2 plus V2 quote fallback.
+- Execution is through Universal Router (including V2 legs).
 
-## 3) Liquidity and farms
+## 3) Approval migration
 
-- Liquidity actions are V2 add/remove LP flows.
-- LP token approvals for liquidity removal target V2 Router.
-- Farm staking approvals target MasterChef.
+For ERC20 swap input, approval flow is:
+1. ERC20 allowance to Permit2.
+2. Permit2 allowance to Universal Router.
 
-## 4) Address baseline (from current app config)
+Do not assume direct ERC20 allowance to V2 Router for swap execution.
 
-- V2 Factory: `0xb70112d72da5d6df0bb2b26a2307e4ba27cfe042`
-- V2 Router: `0xf9ac1ee27a2db3a471e1f590cd689dee6a2c391d`
-- MasterChef: `0x8d29ebbf13786fe6c5439937d5d47e2fb8cc9f9a`
-- CRX/WETH LP: `0x340d63169285e5ae01a722ce762c0e81a7fa3037`
+## 4) Liquidity and farms migration
 
-## 5) Deprecated assumptions to remove
+- Liquidity now includes both V2 pools and V3 position flows.
+- Farms surface is V3 Staker (position-based), not the old V2 LP MasterChef UX.
 
-- Remove Universal Router swap integration assumptions.
-- Remove Permit2 spender assumptions for swap approvals.
-- Remove V3 Quoter V2 dependency assumptions from swap code.
+## 5) Address baseline (from current app config)
 
-## 6) Checklist
+- V2 Factory: `0xC60940F182F7699522970517f6d753A560546937`
+- V2 Router: `0x189b27c207b4cBBae1C65086F31383532443f5f2`
+- V3 Factory: `0x09cF8A0b9e8C89bff6d1ACbe1467e8E335Bdd03E`
+- V3 Quoter V2: `0x962e62df3df243844bd89ffb5b061919725dca2d`
+- V3 Position Manager: `0xa02e90a5f5ef73c434f5a7e6a77e6508f009cb9d`
+- Universal Router: `0x2c61d16Ad68f030bec95370Ab8a0Ba60e7E7B0a6`
+- Permit2: `0x000000000022D473030F116dDEE9F6B43aC78BA3`
+- V3 Staker: `0xc6a9dB70b5618DfbCA05Fa7db11bEC48782D5590`
 
-- Confirm Sepolia chain configuration.
-- Confirm V2 Router spender is used for ERC20 swap approvals.
-- Validate subgraph env vars and fallback behavior.
-- Re-test swap, liquidity, and farm flows end-to-end.
+## 6) Deprecated assumptions to remove
 
+- Legacy single-router swap assumptions.
+- Legacy approval assumptions that skipped Permit2 and Universal Router.
+- Legacy assumptions that V3 position UX was unavailable.
+- Legacy farms assumptions based only on V2 LP MasterChef flows.
+- Legacy network assumptions based on pre-MegaETH deployments.

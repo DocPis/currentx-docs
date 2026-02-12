@@ -1,4 +1,4 @@
-﻿---
+---
 id: pools
 title: Pools
 ---
@@ -8,11 +8,16 @@ title: Pools
 - [Pool List](#pool-list)
 - [Metrics](#metrics)
 - [APR Breakdown](#apr-breakdown)
-- [V3 Listing Status](#v3-listing-status)
+- [Filters and Actions](#filters-and-actions)
 
 ## Pool List
 
-The Pools view lists active V2 pools and supports filtering by token pair and TVL.
+The Pools view lists available pools across both V3 and V2.
+
+Supported filters:
+- `All`
+- `V3`
+- `V2`
 
 ## Metrics
 
@@ -20,16 +25,21 @@ Common metrics shown per pool:
 - TVL.
 - 24h volume.
 - 24h fees.
-- APR (fee APR and, when available, incentive APR).
+- APR.
+
+V3 rows also include fee tier context.
 
 ## APR Breakdown
 
 - Fee APR is estimated from recent fee activity relative to TVL.
-- Incentive APR is estimated from farm emissions for pools mapped in MasterChef.
+- V2 fee rate assumptions use 0.30%.
+- V3 fee calculations use the pool fee tier.
 
 APR values are estimates and can change quickly with market activity.
 
-## V3 Listing Status
+## Filters and Actions
 
-V3 pool rows are not currently live in the app UI.
-
+- Search by token symbols or addresses.
+- Sort by liquidity, volume, fees, or APR.
+- Optional low-TVL hiding.
+- Selecting a pool can open Liquidity with that pair prefilled.

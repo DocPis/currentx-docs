@@ -1,38 +1,45 @@
-﻿---
+---
 id: farms
-title: Farms (stake LP for CRX)
+title: Farms (V3 incentives)
 ---
 
 
 ## Table of Contents
 - [Contracts](#contracts)
-- [Rewards and APR](#rewards-and-apr)
+- [Incentive Model](#incentive-model)
 - [Actions](#actions)
+- [Approvals and Spenders](#approvals-and-spenders)
 - [Refresh Cadence](#refresh-cadence)
 
 ## Contracts
 
-- MasterChef: `0x8d29ebbf13786fe6c5439937d5d47e2fb8cc9f9a`
-- CRX/WETH LP (price reference): `0x340d63169285e5ae01a722ce762c0e81a7fa3037`
+- V3 Staker: `0xc6a9dB70b5618DfbCA05Fa7db11bEC48782D5590`
+- V3 Position Manager: `0xa02e90a5f5ef73c434f5a7e6a77e6508f009cb9d`
+- V3 Factory: `0x09cF8A0b9e8C89bff6d1ACbe1467e8E335Bdd03E`
 
-## Rewards and APR
+## Incentive Model
 
-Farms distribute CRX rewards to V2 LP stakers.
+Farms are position-based incentives built on Uniswap V3 Staker.
 
-APR components:
-- Emissions APR: CRX per block allocated to the pool, converted to USD, divided by pool TVL.
-- Fee APR: pool trading fees earned by the underlying V2 pool.
-
-Total APR is the sum of emissions APR and fee APR. Values are estimates and change with price, volume, and TVL.
+At runtime, users can:
+- Discover active incentives.
+- Match eligible V3 positions to incentive pools.
+- Stake/unstake positions and claim reward token allocations.
 
 ## Actions
 
-- Deposit: approve LP token (if needed) and call `deposit(pid, amount)`.
-- Withdraw: call `withdraw(pid, amount)`.
-- Claim: call `deposit(pid, 0)` to harvest rewards without changing stake.
+- Stake: stake an eligible V3 position NFT into an incentive.
+- Unstake: remove staked position from incentive.
+- Claim: claim accrued rewards from the incentive.
+- Withdraw: withdraw deposited position NFT when stakes are cleared.
+- Create incentive: available in-app for authorized operators.
+
+## Approvals and Spenders
+
+- Position approvals can target V3 Staker before staking.
+- Reward token approvals target V3 Staker for incentive creation.
 
 ## Refresh Cadence
 
-- Farm list refreshes periodically and on page focus.
-- User data refreshes after on-chain activity and on new blocks.
-
+- Incentives and position data refresh periodically.
+- User data refreshes after on-chain activity.

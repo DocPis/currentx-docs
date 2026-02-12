@@ -1,4 +1,4 @@
-﻿---
+---
 id: changelog
 title: Changelog
 ---
@@ -6,14 +6,14 @@ title: Changelog
 
 ## 2026-02-12
 
-- Unified docs around one live swap truth: Uniswap V2 routing only.
-- Removed contradictory references to V3 swap routing, Universal Router, and Permit2 in active docs.
-- Added [Status](./status) as source of truth for live vs planned features.
-- Standardized tokenomics into one official allocation table across tokenomics pages.
-- Standardized Season 1 timing format with UTC, UK/GMT, and Europe/Rome (CET).
+- Aligned docs to the current `currentx-dex` runtime on MegaETH (`0x10e6` / `4326`).
+- Unified swap docs around smart V3 + V2 routing, Universal Router execution, and Permit2 approvals.
+- Updated `overview`, `intro`, `swap`, `architecture`, `migration-guide`, and `status` to remove stale routing/network contradictions.
+- Updated contracts/network references to current addresses from `src/shared/config/networks.js`.
+- Kept one canonical tokenomics allocation and removed non-active legacy allocation content.
+- Standardized Season 1 timestamps in UTC + UK/GMT + Rome/CET format.
 
 ## 2026-02-04
 
-- Initial migration notes were published.
-- Those notes are now superseded by the `2026-02-12` baseline where swap routing is documented as V2 live.
-
+- Migration notes introduced Universal Router + Permit2 + V3 quoting direction.
+- This entry remains historical; canonical live behavior is documented by the `2026-02-12` baseline.

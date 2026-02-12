@@ -1,4 +1,4 @@
-﻿---
+---
 id: megavault
 title: MegaVault
 ---
@@ -9,44 +9,33 @@ title: MegaVault
 - [What It Is](#what-it-is)
 - [How It Works](#how-it-works)
 - [Using MegaVault](#using-megavault)
-- [Fees](#fees)
-- [Tradeoffs and Risks](#tradeoffs-and-risks)
+- [Risks](#risks)
 
 ## Status
 
-MegaVault contracts, strategies, and fee configuration are not yet exposed in the app UI. The sections below describe the intended model, but concrete strategy/fee details are not finalized here.
+MegaVault is available in the app as a live tab through an embedded Avon widget integration.
 
 ## What It Is
 
-MegaVault is a managed liquidity vault that aggregates user deposits and deploys them into predefined strategies on CurrentX. It is designed for users who want automated positioning instead of manually managing LP ranges or farm staking.
+MegaVault provides a managed vault flow directly inside CurrentX for deposit and withdrawal actions.
 
 ## How It Works
 
-When enabled:
-- Users deposit supported assets and receive vault shares.
-- The vault deploys pooled assets into strategies (for example, concentrated ranges or incentive-bearing pools).
-- Fees and rewards are periodically compounded back into the vault.
-- Vault share value changes as the strategy gains or loses value.
-
-The active strategy, target assets, and allocation logic are shown in the MegaVault UI.
+- CurrentX mounts the Avon MegaVault widget on MegaETH.
+- Wallet connection from CurrentX is reused by the widget flow.
+- Strategy and vault-specific transaction details are handled by the widget integration layer.
 
 ## Using MegaVault
 
 Typical flow:
-- Select a vault and review its strategy details.
-- Deposit the supported asset(s).
-- Track performance and share balance in the MegaVault dashboard.
-- Withdraw by redeeming shares back into the underlying asset(s).
+- Open `MegaVault` tab.
+- Connect wallet (if not connected).
+- Select deposit/withdraw path in widget.
+- Confirm on-chain transactions from wallet.
 
-## Fees
+## Risks
 
-Vault fees, if any, are displayed in the UI. These can include management fees, performance fees, or withdrawal fees depending on the strategy.
-
-## Tradeoffs and Risks
-
-- Smart contract risk in the vault and underlying protocols.
-- Strategy risk, including out-of-range exposure for concentrated liquidity strategies.
-- Impermanent loss and volatility risk.
-- Liquidity risk if the vault strategy is concentrated or thinly traded.
-- Performance can lag manual strategies in fast-moving markets.
-
+- Smart contract and integration risk.
+- Strategy performance risk.
+- Liquidity and market risk.
+- Third-party widget dependency risk.

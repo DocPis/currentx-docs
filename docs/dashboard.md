@@ -1,4 +1,4 @@
-﻿---
+---
 id: dashboard
 title: Dashboard
 ---
@@ -12,29 +12,29 @@ title: Dashboard
 
 ## What It Shows
 
-The Dashboard aggregates protocol metrics for the current Sepolia deployment.
+The Dashboard aggregates protocol metrics for the current MegaETH deployment.
 
 Key metrics:
 - Total TVL.
 - Total volume.
 - 24h volume.
-- 24h fees (derived from tracked pool fees).
+- 24h fees.
 
 ## Top Pools
 
-The Top Pools panel surfaces the highest-liquidity or highest-volume pools, including:
+The Top Pools panel surfaces pools across V3 and V2, including:
 - Pool pair.
+- Fee tier (V3 where applicable).
 - TVL.
 - 24h volume.
 - 24h fees.
 
 ## Data Sources
 
-- Primary source: V2-compatible subgraph.
-- Fallback: on-chain reserve reads when subgraph data is delayed or unavailable.
+- Primary source: V2 + V3 subgraphs.
+- Fallback: on-chain reads when subgraph data is delayed or unavailable.
 
 ## Refresh Cadence
 
 - Metrics refresh periodically and on demand.
-- If subgraph data is temporarily unavailable, the UI keeps running with reduced/fallback data.
-
+- UI keeps running with fallback data paths when one data source is degraded.

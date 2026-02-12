@@ -242,16 +242,11 @@
 }
 
 .socialLogo {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
   display: block;
   margin-bottom: 0.5rem;
-}
-
-.socialLogoBoost {
-  width: 28px;
-  height: 28px;
 }
 
 .linkTitle {

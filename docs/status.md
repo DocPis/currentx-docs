@@ -1,4 +1,4 @@
-﻿---
+---
 id: status
 title: Status
 ---
@@ -8,12 +8,11 @@ title: Status
 
 | Feature | Status | Contracts used (high level) | Approvals / spender | Notes |
 | --- | --- | --- | --- | --- |
-| Swap routing | Live | Uniswap V2 Factory + Router | ERC20 approvals to V2 Router (`0xf9ac1ee27a2db3a471e1f590cd689dee6a2c391d`) | Direct pair or one-hop via `WETH`; no Permit2/Universal Router in current flow. |
-| V2 pools | Live | Uniswap V2 Pair + Router | Token approvals to V2 Router; LP approvals to V2 Router for remove liquidity | Add/remove liquidity is available in UI. |
-| V3 positions | Planned | Not configured in current frontend runtime | N/A | V3 position UX is not live in the current app. |
-| Farms | Live | MasterChef (`0x8d29ebbf13786fe6c5439937d5d47e2fb8cc9f9a`) + V2 LP tokens | LP approvals to MasterChef | Claim via `deposit(pid, 0)`. |
-| MegaVault | Planned | N/A (documentation concept only) | N/A | Not exposed as a live app tab. |
-| Subgraph | Beta | V2-compatible subgraph endpoint (`VITE_UNIV2_SUBGRAPH`) | N/A | On-chain fallback is used when subgraph is missing data or delayed. |
-| Realtime WS | Planned | Not wired in current frontend code | N/A | Current frontend relies on RPC + periodic refresh for live updates. |
-| Points / Leaderboard | Planned | Tokenomics policy page (off-chain scoring + seasonal distribution) | N/A | Season schedule is documented; live app UI for points is not deployed. |
-
+| Swap routing | Live | V3 Quoter V2 + Universal Router, with V2 Factory/Router route support | ERC20 approvals to Permit2, Permit2 allowance to Universal Router | Smart mode prefers V3 and can use V2 or split paths. |
+| V2 pools | Live | Uniswap V2 Factory + Router | Token + LP approvals to V2 Router | Add/remove V2 liquidity is available in UI. |
+| V3 positions | Live | Uniswap V3 Factory + Position Manager | Token approvals to Position Manager; NFT approvals as required | Mint/increase/decrease/collect flows are exposed in Liquidity. |
+| Farms | Live | Uniswap V3 Staker + Position Manager | Reward token approvals and position approvals to V3 Staker when needed | Stake/unstake/claim incentives from V3 positions. |
+| MegaVault | Beta | Avon MegaVault widget integration | Managed by widget transaction flow | Tab is live, integration surface is external widget based. |
+| Subgraph | Beta | V2 + V3 The Graph endpoints | N/A | On-chain fallback paths are used when data is missing or delayed. |
+| Realtime WS | Beta | MegaETH realtime client (`stateChanges`, `miniBlocks`) | N/A | Enabled on mainnet websocket endpoints when available. |
+| Points / Leaderboard | Beta | Points API + season config (`VITE_POINTS_*`) | Claim/verification handled by points flow | Points tab is live; leaderboard visibility can be env-gated. |

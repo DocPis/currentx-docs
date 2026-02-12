@@ -1,61 +1,64 @@
-﻿---
+---
 id: architecture
 title: Architecture and Flows
 ---
 
 
-This page summarizes how the CurrentX dApp is wired today, which contracts it uses, and where the runtime configuration lives.
+This page summarizes how the CurrentX dApp is wired today, which contracts it uses, and where runtime configuration lives.
 
 ## Configuration entry points
 
-From `../currentx-dex`:
-- Network and providers: `src/config/web3.js`
-- Addresses: `src/config/addresses.js`
-- Tokens: `src/config/tokens.js`
-- ABIs: `src/config/abis.js`
-- Swap math and pair reads: `src/services/amm.js`
-- Subgraph integration: `src/config/subgraph.js`
+From `currentx-dex`:
+- Network preset: `src/shared/config/networks.js`
+- Addresses: `src/shared/config/addresses.js`
+- Tokens: `src/shared/config/tokens.js`
+- Web3 and providers: `src/shared/config/web3.js`
+- ABIs: `src/shared/config/abis.js`
+- Swap logic: `src/features/swap/SwapSection.jsx`
+- Liquidity logic: `src/features/liquidity/LiquiditySection.jsx`
+- Realtime client: `src/shared/services/realtime.js`
 
 ## Network and providers
 
-- Active target network: Ethereum Sepolia (`0xaa36a7` / `11155111`).
-- Read-only provider: `VITE_SEPOLIA_RPC` (fallback `https://1rpc.io/sepolia`).
+- Active network: MegaETH (`0x10e6` / `4326`).
+- Read providers: RPC pool resolved from network preset and env overrides.
 - Wallet provider: injected wallet via EIP-1193.
 
 ## Data sources
 
-- Primary market data: V2-compatible subgraph (`VITE_UNIV2_SUBGRAPH`).
-- Fallbacks: on-chain reserve reads when subgraph data is missing.
-- No production realtime WebSocket module is wired in the current frontend codebase.
+- V2 subgraph: `VITE_UNIV2_SUBGRAPH`.
+- V3 subgraph: `VITE_UNIV3_SUBGRAPH`.
+- On-chain fallback paths when subgraph data is delayed.
+- Realtime updates via websocket subscriptions (`stateChanges`, `miniBlocks`) when websocket URLs are configured.
 
 ## Swap (live)
 
-- Routing: direct pair or one hop via `WETH`.
-- Quote source: V2 reserves from pair contracts (`getReserves`).
-- Execution: V2 Router `swapExact*` methods.
-- ERC20 approvals: V2 Router spender only.
+- Routing: smart mode over V3 + V2, with split support.
+- V3 quote source: Quoter V2.
+- V2 quote source: reserve-based path quote.
+- Execution: Universal Router.
+- Approvals: ERC20 -> Permit2, then Permit2 allowance for Universal Router.
 
-Core addresses from current config:
-- V2 Factory: `0xb70112d72da5d6df0bb2b26a2307e4ba27cfe042`
-- V2 Router: `0xf9ac1ee27a2db3a471e1f590cd689dee6a2c391d`
+Core swap addresses from config:
+- V2 Factory: `0xC60940F182F7699522970517f6d753A560546937`
+- V2 Router: `0x189b27c207b4cBBae1C65086F31383532443f5f2`
+- V3 Factory: `0x09cF8A0b9e8C89bff6d1ACbe1467e8E335Bdd03E`
+- V3 Quoter V2: `0x962e62df3df243844bd89ffb5b061919725dca2d`
+- Universal Router: `0x2c61d16Ad68f030bec95370Ab8a0Ba60e7E7B0a6`
+- Permit2: `0x000000000022D473030F116dDEE9F6B43aC78BA3`
 
 ## Liquidity (live)
 
-- Liquidity flows are V2 LP flows (add/remove via V2 Router).
-- LP token approvals also target V2 Router.
-- V3 position management is not exposed in the current UI.
+- V2: add/remove liquidity through V2 Router.
+- V3: position mint/increase/decrease/collect through Position Manager.
+- Pools surface combines V2 and V3 pool data.
 
 ## Farms (live)
 
-- Farms use MasterChef with V2 LP staking.
-- LP token approvals target MasterChef.
-- Claim flow uses `deposit(pid, 0)`.
+- Farms tab is based on V3 Staker incentives.
+- Position NFTs can be staked/unstaked and rewards claimed per incentive.
+- Incentive creation flow is available for authorized operators.
 
-## Not live in current swap path
+## Legacy contracts present in config
 
-- Uniswap V3 Quoter V2
-- Universal Router
-- Permit2
-
-These are not used by the current swap implementation and should not be treated as live routing dependencies.
-
+`MASTER_CHEF_ADDRESS` remains configured, but current farms UX is V3 Staker-based.

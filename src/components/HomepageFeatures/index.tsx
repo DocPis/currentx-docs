@@ -1,4 +1,4 @@
-﻿import type {ReactNode} from 'react';
+import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
@@ -13,38 +13,38 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Seamless swaps',
+    title: 'Smart swaps',
     pill: 'Swap',
     accent: 'linear-gradient(135deg, #0ea5e9, #2563eb)',
     href: '/docs/swap',
     description: (
       <>
-        ETH/WETH wrap and Uniswap V2 routing with allowance checks, price
-        impact, and min received based on your slippage.
+        Universal Router execution with smart V3 + V2 routing, Permit2 approvals,
+        and slippage-aware min received checks.
       </>
     ),
   },
   {
-    title: 'Liquidity without guesswork',
+    title: 'V2 pools + V3 positions',
     pill: 'Liquidity',
     accent: 'linear-gradient(135deg, #22d3ee, #34d399)',
     href: '/docs/liquidity',
     description: (
       <>
-        Guided add/remove flows, balanced suggestions from on-chain reserves,
-        and fallback TVL estimates when the subgraph is missing data.
+        Manage classic V2 LP positions and concentrated V3 positions in one
+        liquidity surface.
       </>
     ),
   },
   {
-    title: 'Earn CRX from your LPs',
-    pill: 'Farming',
+    title: 'Incentives on V3',
+    pill: 'Farms',
     accent: 'linear-gradient(135deg, #a855f7, #6366f1)',
     href: '/docs/farms',
     description: (
       <>
-        Stake LP tokens in the MasterChef, track APR and pending CRX, and
-        inspect transactions on Sepolia explorer links.
+        Stake V3 positions into live incentive programs and track reward flows
+        directly from the app.
       </>
     ),
   },
@@ -72,7 +72,7 @@ export default function HomepageFeatures(): ReactNode {
       <div className="container">
         <div className={styles.sectionHeader}>
           <Heading as="h2">Why CurrentX</Heading>
-          <p>Built around the exact flows currently live in the Sepolia dApp.</p>
+          <p>Built around the exact flows currently live in the MegaETH dApp.</p>
         </div>
         <div className={styles.featureGrid}>
           {FeatureList.map((props, idx) => (

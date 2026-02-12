@@ -1,4 +1,4 @@
-﻿---
+---
 id: overview
 title: Overview
 ---
@@ -7,51 +7,48 @@ title: Overview
 ## Table of Contents
 - [What is CurrentX](#what-is-currentx)
 - [Architecture](#architecture)
-- [Live vs Planned](#live-vs-planned)
+- [Live Surface](#live-surface)
 - [Network](#network)
 - [App Sections](#app-sections)
 
 ## What is CurrentX
 
-CurrentX is a DEX frontend with live V2 swap/liquidity/farm flows documented from the current app runtime.
+CurrentX is a DEX frontend on MegaETH mainnet. These docs track the live runtime behavior from `currentx-dex`.
 
 ## Architecture
 
 At a high level:
-- The UI connects to injected wallets and Sepolia RPC.
-- Swap and liquidity actions run through Uniswap V2 contracts.
-- Farming actions run through MasterChef with V2 LP staking.
-- Market stats are read from a V2-compatible subgraph with on-chain fallback.
+- The UI connects to injected wallets and a MegaETH RPC pool.
+- Swap uses smart routing across Uniswap V3 and V2, executed through Universal Router.
+- Liquidity supports both V2 pools and V3 positions.
+- Farms run through Uniswap V3 Staker incentives.
+- Market stats are read from V2/V3 subgraphs with on-chain fallbacks.
 
-## Live vs Planned
+## Live Surface
 
-Live:
-- V2 swap routing and execution.
-- V2 liquidity add/remove.
-- MasterChef farms.
-
-Planned / not live in current runtime:
-- V3 position management UX.
-- Universal Router / Permit2 swap path.
-- Realtime WebSocket feed pipeline.
+Live in current runtime:
+- Smart swap routing (V3 primary, V2 fallback/split) with Universal Router and Permit2 approvals.
+- V2 liquidity add/remove and V3 position management.
+- Farms via V3 Staker.
+- Points tab and MegaVault tab.
+- Realtime WebSocket client plus RPC/subgraph fallbacks.
 
 See [Status](./status) for the canonical live state.
 
 ## Network
 
-- Chain: Ethereum Sepolia
-- Chain ID: `11155111` (`0xaa36a7`)
-- Explorer: `https://sepolia.etherscan.io`
-- RPC default: `https://1rpc.io/sepolia`
+- Chain: MegaETH
+- Chain ID: `4326` (`0x10e6`)
+- Explorer: `https://megaeth.blockscout.com`
+- RPC defaults: `https://mainnet.megaeth.com/rpc`, `https://rpc-megaeth-mainnet.globalstake.io`
 
 ## App Sections
 
-- [Dashboard](./dashboard): protocol TVL/volume snapshots and top pools.
-- [Swap](./swap): V2 routing, quotes, slippage, and approvals.
-- [Liquidity](./liquidity): V2 LP flows.
-- [Pools](./pools): pool list, metrics, and APR breakdown.
-- [Farms](./farms): stake V2 LP tokens to earn CRX.
-- [MegaVault](./megavault): roadmap-level vault documentation.
+- [Dashboard](./dashboard): protocol TVL/volume snapshots across V2 and V3 pools.
+- [Swap](./swap): smart routing, quotes, slippage, Permit2 approvals, and Universal Router execution.
+- [Liquidity](./liquidity): V2 LP flows plus V3 position flows.
+- [Pools](./pools): combined V2/V3 pool list, metrics, and APR breakdown.
+- [Farms](./farms): stake V3 positions into V3 incentives.
+- [MegaVault](./megavault): live vault widget integration.
 - [FAQ / Glossary](./faq): definitions and common questions.
 - [Contracts](./contracts): on-chain addresses pulled from app config.
-

@@ -1,4 +1,4 @@
-﻿---
+---
 id: faq
 title: FAQ and Glossary
 ---
@@ -13,22 +13,25 @@ title: FAQ and Glossary
 | Term | Definition |
 | --- | --- |
 | Slippage | Maximum price movement accepted between quote and execution. |
-| IL (Impermanent Loss) | Difference between LP value and simple hold value. |
-| LP | Liquidity provider. In live flows this is a V2 LP token position. |
+| IL (Impermanent Loss) | Difference between LP value and hold value. |
+| LP | Liquidity provider position (V2 LP token or V3 NFT position). |
 | TVL | Total value locked in a pool or protocol. |
 | APR | Annual percentage rate estimated from fees and incentives. |
-| Tick / fee tier / range | V3 concentrated-liquidity concepts (planned, not live in current UI). |
+| Tick / fee tier / range | V3 concentrated-liquidity concepts used by the live V3 liquidity flow. |
 
 ## FAQ
 
 How do I claim V2 fees?
-- V2 fees are included in pool reserves. You realize them by removing liquidity (burning LP tokens).
+- V2 fees are embedded in pool reserves and realized when removing liquidity.
 
-Why is my transaction failing on wallet connect or swap?
-- Wallet may reject the request (`4001` / `ACTION_REJECTED`).
-- Wallet may be on the wrong network (switch to Sepolia).
-- The selected pair may have low or missing liquidity.
+How do I claim V3 fees?
+- Use the V3 collect action on your position in Liquidity.
+
+Why is my swap failing?
+- Wallet rejected the request (`4001` / `ACTION_REJECTED`).
+- Wallet is on wrong network (switch to MegaETH).
+- Missing approvals for Permit2 and/or Universal Router allowance.
+- Route has insufficient liquidity for selected size/slippage.
 
 Can I use V3 positions in the current app UI?
-- Not yet. V3 position flows are planned and are not currently live.
-
+- Yes. V3 position flows are live in Liquidity.
