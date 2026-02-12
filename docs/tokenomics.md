@@ -1,55 +1,63 @@
----
+﻿---
 id: tokenomics
 title: Tokenomics
 ---
 
+> Status: Official
+> Last updated: 2026-02-12
+> Tokenomics version: v20260212
+
 ## Table of Contents
-- [Recommended Split](#recommended-split)
-- [Why This Split Works Day One (MegaETH)](#why-this-split-works-day-one-megaeth)
-- [Key Rules to Prevent Farming or Dumps](#key-rules-to-prevent-farming-or-dumps)
-- [Airdrop + Points (100,000 CRX)](#airdrop--points-100000-crx)
-- [Partnerships / Market-Making / Integrations (150,000 CRX)](#partnerships--market-making--integrations-150000-crx)
-- [Incentives (250,000 CRX)](#incentives-250000-crx)
-- [Team + Treasury (250,000 CRX)](#team--treasury-250000-crx)
+- [Official Allocation (Active)](#official-allocation-active)
+- [Leaderboard Season Budget](#leaderboard-season-budget)
+- [Claim](#claim)
+- [Alternative Example (Not Active)](#alternative-example-not-active)
 
-## Recommended Split
+## Official Allocation (Active)
 
-Total supply: 1,000,000 CRX.
+Total supply: `1,000,000 CRX`.
 
-| Bucket | CRX | % | Notes |
-| --- | --- | --- | --- |
-| Initial POL (protocol-owned liquidity) | 250,000 | 25% | Set for launch. |
-| Incentives (V3 stakers / liquidity bootstrap) | 250,000 | 25% | Emissions runway to grow pools. |
-| Team + core treasury | 250,000 | 25% | Operations and future runway, vested for credibility. |
-| Partnerships / market-making / integrations | 150,000 | 15% | Real partner deals and liquidity programs. |
-| Airdrop + points leaderboard | 100,000 | 10% | Growth without immediate dumping. |
+| Bucket | % | CRX | Notes |
+| --- | ---: | ---: | --- |
+| LP (Genesis) | 25% | 250,000 | Initial liquidity bootstrap with transparent ownership/lock policy. |
+| Leaderboard Rewards (Seasons) | 40% | 400,000 | Seasonal rewards for swap and LP activity. |
+| Farms / Liquidity Mining | 15% | 150,000 | Incentives for LP farming programs. |
+| Partnerships / MM / Aggregators | 5% | 50,000 | Milestone-based ecosystem incentives. |
+| Treasury / Runway | 5% | 50,000 | Operations, maintenance, contingency. |
+| Security / Bug Bounty / Audits | 5% | 50,000 | Security programs and audits. |
+| Team / Contributors (Vesting) | 5% | 50,000 | Contributor compensation with vesting. |
+| **Total** | **100%** | **1,000,000** |  |
 
-## Why This Split Works Day One (MegaETH)
+This table is the canonical tokenomics allocation and matches [CRX Distribution & Leaderboard Rewards](./tokenomics/crx-distribution).
 
-- 25% incentives provides enough runway to grow pools without burning half the supply.
-- 15% partnerships gives real ammunition for market-making, aggregators, bridges, listings, and joint campaigns.
-- 10% points or airdrop drives growth while avoiding a large one-time dump if claims are structured.
-- 25% team and treasury covers operations, emergencies, and future work, with vesting to signal seriousness.
+## Leaderboard Season Budget
 
-## Key Rules to Prevent Farming or Dumps
+Leaderboard rewards pool: `400,000 CRX`.
 
-### Airdrop + Points (100,000 CRX)
+| Season | CRX Allocation |
+| --- | ---: |
+| Season 1 | 120,000 |
+| Season 2 | 90,000 |
+| Season 3 | 70,000 |
+| Season 4 | 50,000 |
+| Season 5 | 40,000 |
+| Season 6 | 30,000 |
+| **Total** | **400,000** |
 
-- Avoid 100% immediate claims. Example: 30% immediate claim, 70% vesting over 60 to 90 days.
-- Convert points to CRX with a per-wallet cap and anti-sybil checks (minimum volume, minimum active days, and similar filters).
-- Run the leaderboard in seasons (2 to 4 weeks) instead of continuous emissions.
+## Claim
 
-### Partnerships / Market-Making / Integrations (150,000 CRX)
+Rewards are claimable at the end of each season, once finalization is complete.
 
-- Use milestones. Example: 25% upfront and the remainder released only after objectives are met (integration live, minimum volume, campaigns completed).
-- For market-making, stream rewards daily or weekly rather than paying a lump sum.
+## Alternative Example (Not Active)
 
-### Incentives (250,000 CRX)
+:::warning Not active allocation
+The split below is a legacy example only and is not the current live tokenomics policy.
+:::
 
-- Use 7 to 14 day epochs with a fixed budget and a kill switch.
-- Pay rewards only on useful liquidity ranges near the price so incentives do not buy cosmetic TVL.
-
-### Team + Treasury (250,000 CRX)
-
-- Use a 3 to 6 month cliff and 24 to 36 month vesting, even for treasury allocations.
-- Hold treasury in a multisig.
+| Bucket | % |
+| --- | ---: |
+| Initial POL | 25% |
+| Incentives | 25% |
+| Team + core treasury | 25% |
+| Partnerships / market-making / integrations | 15% |
+| Airdrop + points leaderboard | 10% |

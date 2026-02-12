@@ -3,36 +3,35 @@ id: onchain-references
 title: On-chain References
 ---
 
+> Status: Live baseline
+> Last updated: 2026-02-12
+> Docs version: v20260212
+
 ## Table of Contents
 - [Network](#network)
-- [RPC and WebSocket](#rpc-and-websocket)
+- [RPC](#rpc)
 - [Subgraph](#subgraph)
 - [Contracts](#contracts)
 
 ## Network
 
-- Chain: MegaETH
-- Chain ID (hex): `0x10e6`
-- Chain ID (dec): `4326`
-- Explorer: `https://megaeth.blockscout.com`
+- Chain: Ethereum Sepolia
+- Chain ID (hex): `0xaa36a7`
+- Chain ID (dec): `11155111`
+- Explorer: `https://sepolia.etherscan.io`
 
-## RPC and WebSocket
+## RPC
 
-RPC URLs (default pool):
-- `https://mainnet.megaeth.com/rpc`
-- `https://rpc-megaeth-mainnet.globalstake.io`
+- Env: `VITE_SEPOLIA_RPC`
+- Default fallback in app code: `https://1rpc.io/sepolia`
 
-WebSocket URLs:
-- From env: `VITE_WS_URL`, `VITE_WS_URLS`, `VITE_MEGAETH_REALTIME_WS`
-- Derived from the active RPC URL (http -> ws, `/rpc` -> `/ws`)
-- Fallback: `wss://mainnet.megaeth.com/ws`
+No dedicated app-level WebSocket endpoint is configured in the current frontend runtime.
 
 ## Subgraph
 
-- URL: `https://gateway.thegraph.com/api/subgraphs/id/AokDW2tqCMiFvVqXUEfiwY94mNXoBQfsszwd5bnPiNcr`
-- API key (if using Graph gateway): `VITE_UNIV2_SUBGRAPH_API_KEY`
-- Optional proxy for CORS: `VITE_SUBGRAPH_PROXY`
+- URL env: `VITE_UNIV2_SUBGRAPH`
+- Optional API key env: `VITE_UNIV2_SUBGRAPH_API_KEY`
 
 ## Contracts
 
-Full contract addresses, init code hashes, and tokens are documented in [Contracts](./contracts).
+Full addresses are documented in [Contracts](./contracts).

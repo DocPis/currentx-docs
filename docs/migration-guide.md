@@ -1,45 +1,51 @@
----
+﻿---
 id: migration-guide
 title: Migration Guide
 ---
 
-This guide is for integrators updating from older CurrentX docs or configs to the current release.
+> Status: Active baseline
+> Last updated: 2026-02-12
+> Docs version: v20260212
+
+This guide is for integrators updating older CurrentX docs/integrations to match the live frontend implementation.
 
 ## 1) Network preset
 
-- Network is MegaETH mainnet only (`chainId 0x10e6`, decimal `4326`).
-- Provide RPC URLs via `VITE_RPC_URL` / `VITE_RPC_URLS` (the app rotates on rate limits).
-- Provide WebSocket URLs via `VITE_WS_URL` / `VITE_WS_URLS` or rely on RPC-derived WS + fallback `wss://mainnet.megaeth.com/ws`.
-- Subgraph: `VITE_UNIV2_SUBGRAPH` with `VITE_UNIV2_SUBGRAPH_API_KEY` when using the Graph gateway.
+- Network target is Sepolia (`chainId 0xaa36a7`, decimal `11155111`).
+- Read-only RPC uses `VITE_SEPOLIA_RPC` (fallback `https://1rpc.io/sepolia`).
+- Subgraph envs:
+  - `VITE_UNIV2_SUBGRAPH`
+  - `VITE_UNIV2_SUBGRAPH_API_KEY` (optional)
 
-## 2) Swap migration (V3)
+## 2) Swap migration (V2)
 
-- Swap now uses Uniswap V3 Quoter V2 and the Universal Router.
-- ERC20 approvals must target **Permit2** (`0x000000000022D473030F116dDEE9F6B43aC78BA3`).
-- If you previously approved the V2 router, update your approval flow.
+- Swap routing is Uniswap V2 only.
+- Quotes are computed from pair reserves (not from V3 quoter paths).
+- Execution uses V2 Router `swapExact*` functions.
+- ERC20 approvals must target the V2 Router spender.
 
-## 3) Liquidity migration
+## 3) Liquidity and farms
 
-- V2 pools remain, but the Liquidity page also supports V3 positions via the Nonfungible Position Manager.
-- V3 positions are minted with `createAndInitializePoolIfNecessary` and `mint`.
-- Increase, decrease, and collect actions are not exposed in the UI yet. TODO.
+- Liquidity actions are V2 add/remove LP flows.
+- LP token approvals for liquidity removal target V2 Router.
+- Farm staking approvals target MasterChef.
 
-## 4) Address updates
+## 4) Address baseline (from current app config)
 
-- V2 Factory: `0xC60940F182F7699522970517f6d753A560546937`
-- V2 Router: `0x189b27c207b4cBBae1C65086F31383532443f5f2`
-- V3 Factory: `0x09cF8A0b9e8C89bff6d1ACbe1467e8E335Bdd03E`
-- Universal Router: `0x2c61d16Ad68f030bec95370Ab8a0Ba60e7E7B0a6`
-- Position Manager: `0xA02E90A5F5eF73c434f5A7E6A77E6508f009cB9D`
+- V2 Factory: `0xb70112d72da5d6df0bb2b26a2307e4ba27cfe042`
+- V2 Router: `0xf9ac1ee27a2db3a471e1f590cd689dee6a2c391d`
+- MasterChef: `0x8d29ebbf13786fe6c5439937d5d47e2fb8cc9f9a`
+- CRX/WETH LP: `0x340d63169285e5ae01a722ce762c0e81a7fa3037`
 
-## 5) Token registry changes
+## 5) Deprecated assumptions to remove
 
-- USDm address is `0xFAfDdbb3FC7688494971a79cc65DCa3EF82079E7`.
-- New tokens in the registry: `USDT0`, `STCUSD`, `USDe`, `sUSDe`, `ezETH`, `wstETH`, `MEGA`.
-- Liquidity blocked tokens are documented in the Liquidity page.
+- Remove Universal Router swap integration assumptions.
+- Remove Permit2 spender assumptions for swap approvals.
+- Remove V3 Quoter V2 dependency assumptions from swap code.
 
 ## 6) Checklist
 
-- Update env vars and addresses from `src/shared/config/networks.js` and `src/shared/config/addresses.js`.
-- Update swap integration to use Permit2 and the Universal Router.
-- Validate token decimals and allowances after the registry update.
+- Confirm Sepolia chain configuration.
+- Confirm V2 Router spender is used for ERC20 swap approvals.
+- Validate subgraph env vars and fallback behavior.
+- Re-test swap, liquidity, and farm flows end-to-end.

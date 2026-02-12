@@ -3,6 +3,10 @@ id: megavault
 title: MegaVault
 ---
 
+> Status: Planned
+> Last updated: 2026-02-12
+> Docs version: v20260212
+
 ## Table of Contents
 - [Status](#status)
 - [What It Is](#what-it-is)
@@ -17,13 +21,13 @@ MegaVault contracts, strategies, and fee configuration are not yet exposed in th
 
 ## What It Is
 
-MegaVault is a managed liquidity vault that aggregates user deposits and deploys them into predefined strategies on CurrentX. It is designed for users who want automated positioning instead of manually managing V3 ranges or farm staking.
+MegaVault is a managed liquidity vault that aggregates user deposits and deploys them into predefined strategies on CurrentX. It is designed for users who want automated positioning instead of manually managing LP ranges or farm staking.
 
 ## How It Works
 
 When enabled:
 - Users deposit supported assets and receive vault shares.
-- The vault deploys pooled assets into strategies (for example, V3 ranges or incentive-bearing pools).
+- The vault deploys pooled assets into strategies (for example, concentrated ranges or incentive-bearing pools).
 - Fees and rewards are periodically compounded back into the vault.
 - Vault share value changes as the strategy gains or loses value.
 
@@ -44,7 +48,7 @@ Vault fees, if any, are displayed in the UI. These can include management fees, 
 ## Tradeoffs and Risks
 
 - Smart contract risk in the vault and underlying protocols.
-- Strategy risk, including out-of-range exposure for V3 positions.
+- Strategy risk, including out-of-range exposure for concentrated liquidity strategies.
 - Impermanent loss and volatility risk.
 - Liquidity risk if the vault strategy is concentrated or thinly traded.
 - Performance can lag manual strategies in fast-moving markets.

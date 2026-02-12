@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+﻿import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
@@ -14,18 +14,18 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <p className={styles.kicker}>CurrentX - MegaETH</p>
+            <p className={styles.kicker}>CurrentX - Sepolia</p>
             <Heading as="h1" className={styles.heroTitle}>
               Ship swaps, liquidity, and farming with confidence
             </Heading>
             <p className={clsx('hero__subtitle', styles.heroSubtitle)}>
-              Everything you need to build on the CurrentX DEX: live Uniswap V2
-              quotes on MegaETH, subgraph-backed stats, and CRX farming via MasterChef.
+              Everything you need to build on CurrentX: live Uniswap V2 routing
+              on Sepolia, subgraph-backed stats, and CRX farming via MasterChef.
             </p>
             <div className={styles.chips}>
-              <span>Live quotes & price impact</span>
-              <span>Guided liquidity flows</span>
-              <span>CRX rewards & LP staking</span>
+              <span>Swap V2 live</span>
+              <span>Approvals to V2 Router</span>
+              <span>Status page as source of truth</span>
             </div>
             <div className={styles.buttons}>
               <Link
@@ -35,10 +35,8 @@ function HomepageHeader() {
               </Link>
               <Link
                 className={clsx('button button--secondary button--lg', styles.ghostButton)}
-                href="https://currentx.app/"
-                target="_blank"
-                rel="noreferrer">
-                Launch the app
+                to="/docs/status">
+                Check live status
               </Link>
             </div>
           </div>
@@ -60,11 +58,11 @@ function HomepageHeader() {
               </li>
               <li>
                 <span className={styles.dot} />
-                Contract addresses, env vars, and environment setup for MegaETH.
+                Contract addresses and network params from the live dApp config.
               </li>
               <li>
                 <span className={styles.dot} />
-                Applied for the MegaETH Frontier program.
+                Tokenomics and season timing with UTC/UK/Rome standard.
               </li>
             </ul>
           </div>
@@ -78,7 +76,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title="CurrentX Docs"
-      description="CurrentX swaps, liquidity, and CRX farming on MegaETH">
+      description="CurrentX swaps, liquidity, and CRX farming on Sepolia">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
@@ -86,13 +84,13 @@ export default function Home(): ReactNode {
           <div className="container">
             <div className={styles.sectionHeader}>
               <Heading as="h2">Stay connected</Heading>
-              <p>Where to find the CurrentX dApp and community.</p>
+              <p>Where to find the CurrentX app and community.</p>
             </div>
             <div className={styles.linkGrid}>
               <a className={styles.linkCard} href="https://currentx.app/" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>App</span>
                 <div className={styles.linkTitle}>Launch CurrentX</div>
-                <div className={styles.linkDesc}>Open the MegaETH dApp for swaps, liquidity, and farming.</div>
+                <div className={styles.linkDesc}>Open the Sepolia dApp for swaps, liquidity, and farming.</div>
               </a>
               <a className={styles.linkCard} href="https://t.me/currentxdex" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>Telegram</span>
@@ -102,7 +100,7 @@ export default function Home(): ReactNode {
               <a className={styles.linkCard} href="https://x.com/currentxdex" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>X</span>
                 <div className={styles.linkTitle}>Twitter / X</div>
-                <div className={styles.linkDesc}>Follow news, releases, and testnet milestones.</div>
+                <div className={styles.linkDesc}>Follow releases and product updates.</div>
               </a>
               <a className={styles.linkCard} href="https://discord.gg/g33rC3RT" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>Discord</span>

@@ -3,6 +3,10 @@ id: dashboard
 title: Dashboard
 ---
 
+> Status: Live
+> Last updated: 2026-02-12
+> Docs version: v20260212
+
 ## Table of Contents
 - [What It Shows](#what-it-shows)
 - [Top Pools](#top-pools)
@@ -11,17 +15,17 @@ title: Dashboard
 
 ## What It Shows
 
-The Dashboard aggregates protocol-wide metrics for CurrentX on MegaETH.
+The Dashboard aggregates protocol metrics for the current Sepolia deployment.
 
 Key metrics:
-- Total TVL (protocol liquidity).
-- Total volume (all-time).
+- Total TVL.
+- Total volume.
 - 24h volume.
-- 24h fees (derived from swap fees on tracked pools).
+- 24h fees (derived from tracked pool fees).
 
 ## Top Pools
 
-The Top Pools panel surfaces the highest-liquidity or highest-volume pools on the network, along with:
+The Top Pools panel surfaces the highest-liquidity or highest-volume pools, including:
 - Pool pair.
 - TVL.
 - 24h volume.
@@ -29,10 +33,10 @@ The Top Pools panel surfaces the highest-liquidity or highest-volume pools on th
 
 ## Data Sources
 
-- Primary source: CurrentX subgraph (V2 schema) for TVL, volume, and historical charts.
-- Fallbacks: on-chain reserve reads for pools when the subgraph is delayed or unavailable.
+- Primary source: V2-compatible subgraph.
+- Fallback: on-chain reserve reads when subgraph data is delayed or unavailable.
 
 ## Refresh Cadence
 
-- Protocol metrics are refreshed on a rolling interval (minutes) and on page focus.
-- If the subgraph is temporarily unavailable, the UI shows a warning and continues to serve on-chain data where possible.
+- Metrics refresh periodically and on demand.
+- If subgraph data is temporarily unavailable, the UI keeps running with reduced/fallback data.

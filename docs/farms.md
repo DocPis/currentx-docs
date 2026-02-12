@@ -3,6 +3,10 @@ id: farms
 title: Farms (stake LP for CRX)
 ---
 
+> Status: Live
+> Last updated: 2026-02-12
+> Docs version: v20260212
+
 ## Table of Contents
 - [Contracts](#contracts)
 - [Rewards and APR](#rewards-and-apr)
@@ -11,7 +15,7 @@ title: Farms (stake LP for CRX)
 
 ## Contracts
 
-- MasterChef: `0x0e59533B28df0537bc28D05618a2c4f20EBE07a0`
+- MasterChef: `0x8d29ebbf13786fe6c5439937d5d47e2fb8cc9f9a`
 - CRX/WETH LP (price reference): `0x340d63169285e5ae01a722ce762c0e81a7fa3037`
 
 ## Rewards and APR
@@ -19,10 +23,10 @@ title: Farms (stake LP for CRX)
 Farms distribute CRX rewards to V2 LP stakers.
 
 APR components:
-- Emissions APR: CRX per block allocated to the pool, converted to USD and divided by pool TVL.
+- Emissions APR: CRX per block allocated to the pool, converted to USD, divided by pool TVL.
 - Fee APR: pool trading fees earned by the underlying V2 pool.
 
-Total APR is the sum of emissions APR and fee APR. All values are estimates and change with price, volume, and TVL.
+Total APR is the sum of emissions APR and fee APR. Values are estimates and change with price, volume, and TVL.
 
 ## Actions
 

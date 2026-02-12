@@ -1,4 +1,4 @@
-import {themes as prismThemes} from 'prism-react-renderer';
+﻿import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
@@ -9,7 +9,7 @@ const baseUrl = process.env.BASE_URL ?? '/';
 
 const config: Config = {
   title: 'CurrentX',
-  tagline: 'Docs for the CurrentX DEX on MegaETH',
+  tagline: 'Docs for the CurrentX DEX on Sepolia',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -115,3 +115,4 @@ const config: Config = {
 };
 
 export default config;
+

@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+﻿import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
@@ -43,8 +43,8 @@ const FeatureList: FeatureItem[] = [
     href: '/docs/farms',
     description: (
       <>
-        Stake LP tokens in the MasterChef, track APR, pending CRX, and link to
-        the MegaETH explorer for every transaction.
+        Stake LP tokens in the MasterChef, track APR and pending CRX, and
+        inspect transactions on Sepolia explorer links.
       </>
     ),
   },
@@ -72,7 +72,7 @@ export default function HomepageFeatures(): ReactNode {
       <div className="container">
         <div className={styles.sectionHeader}>
           <Heading as="h2">Why CurrentX</Heading>
-          <p>Built for MegaETH with the same flows you ship to mainnet.</p>
+          <p>Built around the exact flows currently live in the Sepolia dApp.</p>
         </div>
         <div className={styles.featureGrid}>
           {FeatureList.map((props, idx) => (

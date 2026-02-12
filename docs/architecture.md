@@ -1,62 +1,63 @@
----
+﻿---
 id: architecture
 title: Architecture and Flows
 ---
 
-This page summarizes how the CurrentX dApp is wired to MegaETH, which contracts it uses, and where configuration lives.
+> Status: Live
+> Last updated: 2026-02-12
+> Docs version: v20260212
+
+This page summarizes how the CurrentX dApp is wired today, which contracts it uses, and where the runtime configuration lives.
 
 ## Configuration entry points
 
-- Network preset: `src/shared/config/networks.js`
-- Addresses: `src/shared/config/addresses.js`
-- Token registry: `src/shared/config/tokens.js`
-- ABI registry: `src/shared/config/abis.js`
-- Web3 utilities and provider selection: `src/shared/config/web3.js`
+From `../currentx-dex`:
+- Network and providers: `src/config/web3.js`
+- Addresses: `src/config/addresses.js`
+- Tokens: `src/config/tokens.js`
+- ABIs: `src/config/abis.js`
+- Swap math and pair reads: `src/services/amm.js`
+- Subgraph integration: `src/config/subgraph.js`
 
 ## Network and providers
 
-- Active network: MegaETH mainnet (`chainId 0x10e6`, decimal `4326`).
-- RPC pool: built from env vars and preset defaults, with rotation on rate limits.
-- Read-only provider prefers injected wallets to avoid CORS, then falls back to RPC URLs.
-- Explorer base URL is pulled from the network preset.
+- Active target network: Ethereum Sepolia (`0xaa36a7` / `11155111`).
+- Read-only provider: `VITE_SEPOLIA_RPC` (fallback `https://1rpc.io/sepolia`).
+- Wallet provider: injected wallet via EIP-1193.
 
 ## Data sources
 
-- Subgraph (Uniswap V2 schema): `src/shared/config/subgraph.js`.
-- Cache TTL: 20s, retries: 2.
-- Optional proxy: `VITE_SUBGRAPH_PROXY` (for CORS).
-- Realtime feed: MegaETH websockets (`stateChanges` and `miniBlocks`) via `src/shared/services/realtime.js`.
+- Primary market data: V2-compatible subgraph (`VITE_UNIV2_SUBGRAPH`).
+- Fallbacks: on-chain reserve reads when subgraph data is missing.
+- No production realtime WebSocket module is wired in the current frontend codebase.
 
-## Swap (V2)
+## Swap (live)
 
-- Routing: direct pair or a single hop via `WETH`.
-- Quoting: V2 Router `getAmountsOut` based on pool reserves.
+- Routing: direct pair or one hop via `WETH`.
+- Quote source: V2 reserves from pair contracts (`getReserves`).
 - Execution: V2 Router `swapExact*` methods.
-- Approvals: ERC20 approvals target the V2 Router.
+- ERC20 approvals: V2 Router spender only.
 
-Note: The current app UI does not route swaps through V3. V3 contracts are documented for protocol reference and future expansion.
+Core addresses from current config:
+- V2 Factory: `0xb70112d72da5d6df0bb2b26a2307e4ba27cfe042`
+- V2 Router: `0xf9ac1ee27a2db3a471e1f590cd689dee6a2c391d`
 
-## Liquidity
+## Liquidity (live)
 
-V2 pools:
-- Pool list is built from the V2 Factory `allPairs` plus token metadata from the registry and on-chain lookups.
-- Live stats (TVL, volume, fees) are fetched from the subgraph, with on-chain reserve fallback.
-- Pair creation is handled by `createPair` before the first addLiquidity.
+- Liquidity flows are V2 LP flows (add/remove via V2 Router).
+- LP token approvals also target V2 Router.
+- V3 position management is not exposed in the current UI.
 
-V3 positions:
-- Positions are minted through the Nonfungible Position Manager.
-- Ranges are converted to ticks and rounded to the fee tier tick spacing.
-- If a pool is not initialized, `createAndInitializePoolIfNecessary` is called using the deposit ratio.
-- Position NFTs are rendered using `tokenURI` (IPFS and base64 supported).
+## Farms (live)
 
-## Farms (MasterChef)
+- Farms use MasterChef with V2 LP staking.
+- LP token approvals target MasterChef.
+- Claim flow uses `deposit(pid, 0)`.
 
-- Pools and APR are loaded from MasterChef via `poolInfo`, `totalAllocPoint`, and `currentxPerBlock`.
-- APR uses on-chain LP reserves with subgraph fallback.
-- Claim uses `deposit(pid, 0)`.
+## Not live in current swap path
 
-## Balances and multicall
+- Uniswap V3 Quoter V2
+- Universal Router
+- Permit2
 
-- Balances are refreshed per block and via realtime miniBlocks.
-- ERC20 reads are batched with Multicall3 when available; direct RPC is used as fallback.
-- Custom tokens are stored in local storage under `__CX_CUSTOM_TOKENS__`.
+These are not used by the current swap implementation and should not be treated as live routing dependencies.
