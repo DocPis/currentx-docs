@@ -249,6 +249,11 @@
   margin-bottom: 0.5rem;
 }
 
+.socialLogoLg {
+  width: 34px;
+  height: 34px;
+}
+
 .linkTitle {
   font-size: 1.05rem;
   color: #f8fafc;
