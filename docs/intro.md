@@ -6,6 +6,14 @@ title: Welcome to CurrentX
 
 CurrentX docs track the live dApp implementation.
 
+## Start here in 60 seconds
+
+1. Bridge assets to MegaETH and keep some `ETH` for gas.
+2. Go to [Swap](./swap) and swap `ETH` -> `USDT0`.
+3. Join community channels: [Telegram](https://t.me/currentxdex), [Discord](https://discord.gg/g33rC3RT), and [X](https://x.com/currentxdex).
+
+Before you execute flows, check [Status](./status): this is the source of truth for what is live.
+
 ## What you'll find
 
 - User flows for Dashboard, Swap, Liquidity, Pools, Points, Farms, and MegaVault.
