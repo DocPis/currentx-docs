@@ -1,6 +1,7 @@
 ﻿import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
@@ -73,6 +74,10 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
+  const telegramIcon = useBaseUrl('/img/social/telegram.png');
+  const xIcon = useBaseUrl('/img/social/x.png');
+  const discordIcon = useBaseUrl('/img/social/discord.png');
+
   return (
     <Layout
       title="CurrentX Docs"
@@ -94,17 +99,26 @@ export default function Home(): ReactNode {
               </a>
               <a className={styles.linkCard} href="https://t.me/currentxdex" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>Telegram</span>
-                <div className={styles.linkTitle}>Telegram</div>
+                <div className={styles.linkTitleRow}>
+                  <img className={styles.socialIcon} src={telegramIcon} alt="Telegram logo" />
+                  <div className={styles.linkTitle}>Telegram</div>
+                </div>
                 <div className={styles.linkDesc}>Join the chat for quick updates and support.</div>
               </a>
               <a className={styles.linkCard} href="https://x.com/currentxdex" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>X</span>
-                <div className={styles.linkTitle}>Twitter / X</div>
+                <div className={styles.linkTitleRow}>
+                  <img className={styles.socialIcon} src={xIcon} alt="X logo" />
+                  <div className={styles.linkTitle}>Twitter / X</div>
+                </div>
                 <div className={styles.linkDesc}>Follow releases and product updates.</div>
               </a>
               <a className={styles.linkCard} href="https://discord.gg/g33rC3RT" target="_blank" rel="noreferrer">
                 <span className={styles.linkBadge}>Discord</span>
-                <div className={styles.linkTitle}>Discord</div>
+                <div className={styles.linkTitleRow}>
+                  <img className={styles.socialIcon} src={discordIcon} alt="Discord logo" />
+                  <div className={styles.linkTitle}>Discord</div>
+                </div>
                 <div className={styles.linkDesc}>Connect with the team and other builders.</div>
               </a>
             </div>
