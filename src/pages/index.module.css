@@ -254,6 +254,11 @@
   height: 34px;
 }
 
+.socialLogoTg {
+  width: 48px;
+  height: 48px;
+}
+
 .linkTitle {
   font-size: 1.05rem;
   color: #f8fafc;
