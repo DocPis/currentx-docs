@@ -4,7 +4,7 @@ title: Welcome to CurrentX
 ---
 
 
-CurrentX docs track the live dApp implementation in `currentx-dex`.
+CurrentX docs track the live dApp implementation.
 
 ## What you'll find
 

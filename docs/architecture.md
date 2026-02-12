@@ -4,19 +4,15 @@ title: Architecture and Flows
 ---
 
 
-This page summarizes how the CurrentX dApp is wired today, which contracts it uses, and where runtime configuration lives.
+This page summarizes how the CurrentX dApp is wired today and which contract surfaces it uses.
 
-## Configuration entry points
+## System modules
 
-From `currentx-dex`:
-- Network preset: `src/shared/config/networks.js`
-- Addresses: `src/shared/config/addresses.js`
-- Tokens: `src/shared/config/tokens.js`
-- Web3 and providers: `src/shared/config/web3.js`
-- ABIs: `src/shared/config/abis.js`
-- Swap logic: `src/features/swap/SwapSection.jsx`
-- Liquidity logic: `src/features/liquidity/LiquiditySection.jsx`
-- Realtime client: `src/shared/services/realtime.js`
+- Network preset and provider layer.
+- Address registry and token registry.
+- Swap engine and route planner.
+- Liquidity engine for V2 pools and V3 positions.
+- Realtime event client and balance refresh pipeline.
 
 ## Network and providers
 

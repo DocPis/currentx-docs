@@ -11,7 +11,6 @@ title: Contracts and Addresses
 - [Uniswap V3 and Universal Router](#uniswap-v3-and-universal-router)
 - [Farms](#farms)
 - [Tokens](#tokens)
-- [Unset in Current Preset](#unset-in-current-preset)
 - [Notes](#notes)
 
 ## Network
@@ -76,15 +75,7 @@ title: Contracts and Addresses
 | MEGA | `0x28B7E77f82B25B95953825F1E3eA0E36c1c29861` |
 | BTC.b | `0xB0F70C0bD6FD87dbEb7C10dC692a2a6106817072` |
 
-## Unset in Current Preset
-
-The following addresses are intentionally empty in `src/shared/config/networks.js` and should not be treated as live until the preset is updated:
-- `USDC_ADDRESS`
-- `XBTC_ADDRESS`
-- `WUSD_ADDRESS`
-- `WUSDC_ADDRESS`
-
 ## Notes
 
-- Values are sourced from `currentx-dex/src/shared/config/networks.js` and `currentx-dex/src/shared/config/addresses.js`.
+- Values in this page are the live addresses currently used by the app.
 - When addresses change, update this page together with [Status](./status).

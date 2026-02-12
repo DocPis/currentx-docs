@@ -13,7 +13,7 @@ title: Overview
 
 ## What is CurrentX
 
-CurrentX is a DEX frontend on MegaETH mainnet. These docs track the live runtime behavior from `currentx-dex`.
+CurrentX is a DEX frontend on MegaETH mainnet. These docs track the live runtime behavior of the app.
 
 ## Architecture
 
