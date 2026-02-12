@@ -98,23 +98,17 @@ export default function Home(): ReactNode {
                 <div className={styles.linkDesc}>Open the Sepolia dApp for swaps, liquidity, and farming.</div>
               </a>
               <a className={styles.linkCard} href="https://t.me/currentxdex" target="_blank" rel="noreferrer">
-                <span className={styles.socialBadge}>
-                  <img className={styles.socialBadgeIcon} src={telegramIcon} alt="Telegram logo" />
-                </span>
+                <img className={styles.socialLogo} src={telegramIcon} alt="Telegram logo" />
                 <div className={styles.linkTitle}>Telegram</div>
                 <div className={styles.linkDesc}>Join the chat for quick updates and support.</div>
               </a>
               <a className={styles.linkCard} href="https://x.com/currentxdex" target="_blank" rel="noreferrer">
-                <span className={styles.socialBadge}>
-                  <img className={styles.socialBadgeIcon} src={xIcon} alt="X logo" />
-                </span>
+                <img className={styles.socialLogo} src={xIcon} alt="X logo" />
                 <div className={styles.linkTitle}>Twitter / X</div>
                 <div className={styles.linkDesc}>Follow releases and product updates.</div>
               </a>
               <a className={styles.linkCard} href="https://discord.gg/g33rC3RT" target="_blank" rel="noreferrer">
-                <span className={styles.socialBadge}>
-                  <img className={styles.socialBadgeIcon} src={discordIcon} alt="Discord logo" />
-                </span>
+                <img className={styles.socialLogo} src={discordIcon} alt="Discord logo" />
                 <div className={styles.linkTitle}>Discord</div>
                 <div className={styles.linkDesc}>Connect with the team and other builders.</div>
               </a>

@@ -241,22 +241,12 @@
   margin-bottom: 0.5rem;
 }
 
-.socialBadge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(37, 99, 235, 0.2));
-  margin-bottom: 0.5rem;
-}
-
-.socialBadgeIcon {
+.socialLogo {
   width: 24px;
   height: 24px;
   object-fit: contain;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .linkTitle {
