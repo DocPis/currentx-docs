@@ -8,7 +8,7 @@ CurrentX docs track the live dApp implementation.
 
 ## Start here in 60 seconds
 
-1. Bridge assets to MegaETH and keep some `ETH` for gas.
+1. Bridge assets to MegaETH from [Bridge](./bridge) and keep some `ETH` for gas.
 2. Go to [Swap](./swap) and swap `ETH` -> `USDT0`.
 3. Join community channels: [Telegram](https://t.me/currentxdex), [Discord](https://discord.gg/g33rC3RT), and [X](https://x.com/currentxdex).
 
@@ -16,7 +16,7 @@ Before you execute flows, check [Status](./status): this is the source of truth 
 
 ## What you'll find
 
-- User flows for Dashboard, Swap, Liquidity, Pools, Points, Farms, and MegaVault.
+- User flows for Dashboard, Swap, Bridge, Liquidity, Pools, Points, Farms, and MegaVault.
 - Contract and network references taken from current app config.
 - Tokenomics and season timing with one canonical distribution table.
 - A live status snapshot in [Status](./status) (source of truth for what is live).

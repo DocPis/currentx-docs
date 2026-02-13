@@ -30,7 +30,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'User guide',
-      items: ['user-guide', 'dashboard', 'swap', 'liquidity', 'pools', 'farms', 'megavault', 'faq'],
+      items: ['user-guide', 'dashboard', 'swap', 'bridge', 'liquidity', 'pools', 'farms', 'megavault', 'faq'],
     },
     {
       type: 'category',

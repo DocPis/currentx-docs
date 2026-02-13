@@ -28,6 +28,7 @@ At a high level:
 
 Live in current runtime:
 - Smart swap routing (V3 primary, V2 fallback/split) with Universal Router and Permit2 approvals.
+- Bridge tab powered by Relay for cross-chain transfers to and from MegaETH.
 - V2 liquidity add/remove and V3 position management.
 - Farms via V3 Staker.
 - Points tab and MegaVault tab.
@@ -46,6 +47,7 @@ See [Status](./status) for the canonical live state.
 
 - [Dashboard](./dashboard): protocol TVL/volume snapshots across V2 and V3 pools.
 - [Swap](./swap): smart routing, quotes, slippage, Permit2 approvals, and Universal Router execution.
+- [Bridge](./bridge): in-app Relay-powered cross-chain transfers to/from MegaETH.
 - [Liquidity](./liquidity): V2 LP flows plus V3 position flows.
 - [Pools](./pools): combined V2/V3 pool list, metrics, and APR breakdown.
 - [Farms](./farms): stake V3 positions into V3 incentives.

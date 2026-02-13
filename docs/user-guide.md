@@ -19,6 +19,7 @@ This guide covers wallet connection, network behavior, and tab navigation in the
 App tabs currently live:
 - `Dashboard`
 - `Swap`
+- `Bridge`
 - `Liquidity`
 - `Pools`
 - `Points`

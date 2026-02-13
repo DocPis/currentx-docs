@@ -9,6 +9,7 @@ title: Status
 | Feature | Status | Contracts used (high level) | Approvals / spender | Notes |
 | --- | --- | --- | --- | --- |
 | Swap routing | Live | V3 Quoter V2 + Universal Router, with V2 Factory/Router route support | ERC20 approvals to Permit2, Permit2 allowance to Universal Router | Smart mode prefers V3 and can use V2 or split paths. |
+| Bridge (Relay) | Live | Relay widget integration (`@relayprotocol/relay-kit-ui`) with configured source/destination chains | Wallet signature and tx flow handled via embedded Relay widget | Bridge tab is live for cross-chain transfers to and from MegaETH. |
 | V2 pools | Live | Uniswap V2 Factory + Router | Token + LP approvals to V2 Router | Add/remove V2 liquidity is available in UI. |
 | V3 positions | Live | Uniswap V3 Factory + Position Manager | Token approvals to Position Manager; NFT approvals as required | Mint/increase/decrease/collect flows are exposed in Liquidity. |
 | Farms | Live | Uniswap V3 Staker + Position Manager | Reward token approvals and position approvals to V3 Staker when needed | Stake/unstake/claim incentives from V3 positions. |
