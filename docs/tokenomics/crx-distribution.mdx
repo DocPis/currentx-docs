@@ -9,6 +9,7 @@ This page is the canonical CRX distribution policy and must stay aligned with `/
 
 :::note Supply
 **Total supply:** **1,000,000 CRX**
+CRX is fixed supply. Leaderboard rewards are distributed from existing allocations, with no additional minting.
 :::
 
 ## Distribution Overview (Official)
@@ -39,6 +40,8 @@ Total rewards allocated to leaderboard seasons: **400,000 CRX**
 | Season 5 | 40,000 | Sustain |
 | Season 6 | 30,000 | Sustain / transition |
 | **Total** | **400,000** |  |
+
+Each season allocation follows the same payout mechanics: `30%` unlocks at claim and `70%` vests linearly over `90 days` from claim time, so the full season amount is not instantly liquid.
 
 ## Season Timing
 
@@ -102,7 +105,14 @@ Where:
 
 ## Claim
 
-Rewards are claimable at the end of each season, once finalization is complete.
+Leaderboard season rewards follow this claim flow:
+
+- Season length: leaderboard seasons run on a `30-day` cadence (Season 1 uses the fixed dates listed above).
+- Eligibility: rewards become claimable only after season finalization is complete.
+- Immediate unlock: `30%` of the user reward unlocks at claim.
+- Vesting: the remaining `70%` vests linearly over `90 days`.
+- Vesting start: the `90-day` vesting period starts when the user claims. Delaying claim delays vesting start.
+- Supply source: rewards are funded from existing CRX allocations; no additional CRX is minted.
 
 ## Partnerships / MM / Aggregator Grants (Milestone-based)
 
