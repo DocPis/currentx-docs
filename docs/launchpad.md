@@ -18,10 +18,6 @@ title: Launchpad
 
 Launchpad brings token discovery, market tracking, and trading into a single workflow.
 
-- Access path: `/launchpad`.
-- It is currently hidden from the main tab navigation.
-- Users can still open it directly by URL.
-
 ## Market
 
 The Market view lists available tokens in a card-based layout.
